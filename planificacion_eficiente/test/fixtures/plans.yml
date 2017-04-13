@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: plans
+#
+#  id          :integer          not null, primary key
+#  grade       :string
+#  subject     :string
+#  year        :integer
+#  total_hours :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grade: MyString
+  subject: MyString
+  year: 1
+  total_hours: 1
+
+two:
+  grade: MyString
+  subject: MyString
+  year: 1
+  total_hours: 1

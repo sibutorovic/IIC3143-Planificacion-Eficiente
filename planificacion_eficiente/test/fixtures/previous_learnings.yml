@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: previous_learnings
+#
+#  id                    :integer          not null, primary key
+#  content               :text
+#  generic_activity      :text
+#  achievement_indicator :text
+#  estimated_time        :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  generic_activity: MyText
+  achievement_indicator: MyText
+  estimated_time: 1
+
+two:
+  content: MyText
+  generic_activity: MyText
+  achievement_indicator: MyText
+  estimated_time: 1

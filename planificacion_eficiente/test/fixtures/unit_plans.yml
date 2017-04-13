@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: unit_plans
+#
+#  id               :integer          not null, primary key
+#  title            :string
+#  total_hours_unit :integer
+#  objective        :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  total_hours_unit: 1
+  objective: MyText
+
+two:
+  title: MyString
+  total_hours_unit: 1
+  objective: MyText
