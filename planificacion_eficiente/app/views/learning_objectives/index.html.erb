@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_learning_objective_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Learning objective
+  <% end %>
+  <h1>Listing learning_objectives</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @learning_objectives) do |learning_objective| %>
+            <td><%= learning_objective.name %></td>
+            <td><%= link_to 'Show', learning_objective %></td>
+        <td><%= link_to 'Edit', edit_learning_objective_path(learning_objective) %></td>
+        <td><%= link_to 'Destroy', learning_objective, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

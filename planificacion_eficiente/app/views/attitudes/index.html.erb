@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_attitude_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Attitude
+  <% end %>
+  <h1>Listing attitudes</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @attitudes) do |attitude| %>
+            <td><%= attitude.name %></td>
+            <td><%= link_to 'Show', attitude %></td>
+        <td><%= link_to 'Edit', edit_attitude_path(attitude) %></td>
+        <td><%= link_to 'Destroy', attitude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to previous_learnings_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_previous_learning_path(@previous_learning), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show previous_learning</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Content:</dt>
+  <dd><%= @previous_learning.content %></dd>
+
+  <dt>Generic activity:</dt>
+  <dd><%= @previous_learning.generic_activity %></dd>
+
+  <dt>Achievement indicator:</dt>
+  <dd><%= @previous_learning.achievement_indicator %></dd>
+
+  <dt>Estimated time:</dt>
+  <dd><%= @previous_learning.estimated_time %></dd>
+
+</dl>

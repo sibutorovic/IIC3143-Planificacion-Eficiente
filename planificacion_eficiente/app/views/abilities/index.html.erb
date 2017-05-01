@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_ability_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Ability
+  <% end %>
+  <h1>Listing abilities</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @abilities) do |ability| %>
+            <td><%= ability.name %></td>
+            <td><%= link_to 'Show', ability %></td>
+        <td><%= link_to 'Edit', edit_ability_path(ability) %></td>
+        <td><%= link_to 'Destroy', ability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

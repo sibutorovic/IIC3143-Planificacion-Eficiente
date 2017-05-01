@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_unit_plan_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Unit plan
+  <% end %>
+  <h1>Listing unit_plans</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Title</th>
+            <th>Total hours unit</th>
+            <th>Objective</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @unit_plans) do |unit_plan| %>
+            <td><%= unit_plan.title %></td>
+            <td><%= unit_plan.total_hours_unit %></td>
+            <td><%= unit_plan.objective %></td>
+            <td><%= link_to 'Show', unit_plan %></td>
+        <td><%= link_to 'Edit', edit_unit_plan_path(unit_plan) %></td>
+        <td><%= link_to 'Destroy', unit_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
