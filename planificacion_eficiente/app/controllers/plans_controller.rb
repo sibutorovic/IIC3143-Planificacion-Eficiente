@@ -15,6 +15,15 @@ class PlansController < ApplicationController
   # GET /plans/new
   def new
     @plan = Plan.new
+    @grades = ['Pre-Kinder','Kinder','Primero Básico','Segundo Básico',
+      'Tercero Básico','Cuarto Básico','Quinto Básico','Sexto Básico',
+    'Séptimo Básico','Octavo Básico','Primero Medio','Segundo Medio',
+  'Tercero Medio','Cuarto Medio']
+    @subjects = ['Matemáticas','Lenguaje y Comunicación','Historia',
+      'Educación Física','Música']
+    @unit_plans = UnitPlan.all
+  
+
   end
 
   # GET /plans/1/edit

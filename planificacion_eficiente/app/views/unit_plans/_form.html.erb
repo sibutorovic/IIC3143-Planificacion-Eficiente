@@ -13,26 +13,26 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, class: "col-sm-2 control-label" %>
+    <%= f.label :title,'Título',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :total_hours_unit, class: "col-sm-2 control-label" %>
+    <%= f.label :total_hours_unit,'Total horas',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :total_hours_unit, class: "form-control" %>
+      <%= f.number_field :total_hours_unit, min: 0,class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :objective, class: "col-sm-2 control-label" %>
+    <%= f.label :objective,'Objetivo',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :objective, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit 'Crear',class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
