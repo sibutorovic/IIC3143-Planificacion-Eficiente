@@ -10,6 +10,15 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
+    respond_to do |format|
+    format.html
+    format.pdf do
+    render  pdf: "plan",
+            template: "plans/show.pdf.erb",
+            layout:'application',
+            locals: {:plan => @plan}
+  end
+end
   end
 
   # GET /plans/new
@@ -22,7 +31,7 @@ class PlansController < ApplicationController
     @subjects = ['Matemáticas','Lenguaje y Comunicación','Historia',
       'Educación Física','Música']
     @unit_plans = UnitPlan.all
-  
+
 
   end
 

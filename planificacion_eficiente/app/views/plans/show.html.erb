@@ -7,20 +7,82 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show plan</h1>
+
+  <h1>Plan</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Grade:</dt>
-  <dd><%= @plan.grade %></dd>
+<table class= "plan_form">
+  <tr>
+    <td class="fila_celeste">Planificación Anual</td>
+  </tr>
 
-  <dt>Subject:</dt>
-  <dd><%= @plan.subject %></dd>
+  <tr>
+    <td class="celda_fila_2">Asignatura:<%= @plan.subject %></td>
+    <td class="celda_fila_2" id="celda_2_2">Nivel:<%= @plan.grade %></td>
+    <td class="celda_fila_2">Total Horas:<%= @plan.total_hours%></td>
+  </tr>
 
-  <dt>Year:</dt>
-  <dd><%= @plan.year %></dd>
+  <tr>
+    <td class="fila_celeste" id="primer_semestre">Primer Semestre</td>
+    <td class="fila_celeste" id="segundo_semestre">Segundo Semestre</td>
+  </tr>
 
-  <dt>Total hours:</dt>
-  <dd><%= @plan.total_hours %></dd>
+  <tr>
+    <td class="unidad">Unidad 1 (Nombre)</td>
+    <td class="unidad">Unidad 2 (Nombre)</td>
+    <td class="unidad">Unidad 3 (Nombre)</td>
+    <td class="unidad">Unidad 4 (Nombre)</td>
+  </tr>
 
-</dl>
+  <tr>
+    <td class="fila_celeste">Objetivos de Aprendizaje (OA)</td>
+  </tr>
+
+
+  <tr>
+    <td>Habilidades</td>
+    <td>Eje temático 1</td>
+    <td>Eje temático 2</td>
+    <td>Eje temático 3</td>
+    <td>Habilidades</td>
+  </tr>
+
+  <tr>
+    <td class="fila_celeste">Actitudes de la asignatura (derivado de los OAT)</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="fila_celeste">Contenidos</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="fila_celeste">Semanas estimadas</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+
+<%= link_to "Descargar PDF",
+  plan_path(@plan, format: "pdf"),
+  target: "_blank",
+  class: "download" %>

@@ -1,0 +1,44 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.fila_celeste{
+  background-color: LightBlue;
+  text-align: center;
+  width: 100%;
+  border:solid;
+}
+
+#primer_semestre{
+  display: inline-block;
+  width: 50%;
+}
+
+#segundo_semestre{
+  display: inline-block;
+  width: 50%;
+}
+
+.plan_form tbody{
+  border:solid;
+}
+
+.celda_fila_2{
+  display: inline-block;
+  width:33%;
+  border:solid;
+}
+
+#celda_2_2{
+  width:34%;
+}
+
+.unidad{
+  border:solid;
+  display: inline-block;
+  width:25%;
+}
+
+table{
+  //table-layout: fixed;
+  width:100%;
+}
