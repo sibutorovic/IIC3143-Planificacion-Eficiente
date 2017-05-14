@@ -15,6 +15,7 @@ class UnitPlansController < ApplicationController
   # GET /unit_plans/new
   def new
     @unit_plan = UnitPlan.new
+    @previous_learnings = PreviousLearning.all
   end
 
   # GET /unit_plans/1/edit
@@ -28,7 +29,7 @@ class UnitPlansController < ApplicationController
 
     respond_to do |format|
       if @unit_plan.save
-        format.html { redirect_to @unit_plan, notice: 'Unit plan was successfully created.' }
+        format.html { render :json =>@unit_plan, notice: 'Unit plan was successfully created.' }
         format.json { render :show, status: :created, location: @unit_plan }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class UnitPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_plan_params
-      params.require(:unit_plan).permit(:title, :total_hours_unit, :objective)
+      params.require(:unit_plan).permit(:title, :total_hours_unit, :objective, :previous_learnings)
     end
 end

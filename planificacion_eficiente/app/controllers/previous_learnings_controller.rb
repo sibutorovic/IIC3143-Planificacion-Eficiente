@@ -69,6 +69,6 @@ class PreviousLearningsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def previous_learning_params
-      params.require(:previous_learning).permit(:content, :generic_activity, :achievement_indicator, :estimated_time)
+      params.require(:previous_learning).permit(:title, :content, :generic_activity, :achievement_indicator, :estimated_time)
     end
 end
