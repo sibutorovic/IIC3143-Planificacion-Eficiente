@@ -5,7 +5,7 @@
   background-color: LightBlue;
   text-align: center;
   width: 100%;
-  border:solid;
+  //border:solid;
 }
 
 #primer_semestre{
@@ -18,14 +18,11 @@
   width: 50%;
 }
 
-.plan_form tbody{
-  border:solid;
-}
 
 .celda_fila_2{
   display: inline-block;
   width:33%;
-  border:solid;
+  //border:solid;
 }
 
 #celda_2_2{
@@ -33,7 +30,7 @@
 }
 
 .unidad{
-  border:solid;
+  //border:solid;
   display: inline-block;
   width:25%;
 }
@@ -41,4 +38,35 @@
 table{
   //table-layout: fixed;
   width:100%;
+}
+
+//.lista_ejes{
+  //border:solid;
+  //width:12%;
+  //float:left;
+//}
+
+.eje_tematico{
+  display: inline-block;
+  width:12.5%;
+}
+
+.habilidades{
+  width: 12.5%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+
+.espacio_vacio{
+  border-right: solid ;
+  padding-top: 18px;
+  width:25%;
+  float:left;
+  text-align: center;
+}
+
+.espacio_vacio_derecha{
+  border:none;
 }
