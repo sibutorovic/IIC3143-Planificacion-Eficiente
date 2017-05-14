@@ -16,6 +16,9 @@ class UnitPlansController < ApplicationController
   def new
     @unit_plan = UnitPlan.new
     @previous_learnings = PreviousLearning.all
+    @learning_objectives = LearningObjective.all
+    @abilities = Ability.all
+    @attitudes = Attitude.all
   end
 
   # GET /unit_plans/1/edit
@@ -25,11 +28,15 @@ class UnitPlansController < ApplicationController
   # POST /unit_plans
   # POST /unit_plans.json
   def create
-    @unit_plan = UnitPlan.new(unit_plan_params)
+    raise unit_plan_params.inspect
+    unit_plan_params_new = unit_plan_params.slice(:title, :total_hours_unit, :objective)
+    @unit_plan = UnitPlan.new(unit_plan_params_new)
+    prev_learning = PreviousLearning.find_by(id: unit_plan_params[:previous_learnings])
+    @unit_plan.previous_learnings << prev_learning
 
     respond_to do |format|
       if @unit_plan.save
-        format.html { render :json =>@unit_plan, notice: 'Unit plan was successfully created.' }
+        format.html {redirect_to @unit_plan, notice: 'Unit plan was successfully created.' }
         format.json { render :show, status: :created, location: @unit_plan }
       else
         format.html { render :new }
@@ -70,6 +77,7 @@ class UnitPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_plan_params
-      params.require(:unit_plan).permit(:title, :total_hours_unit, :objective, :previous_learnings)
+      params.require(:unit_plan).permit(:title, :total_hours_unit, :objective, :previous_learnings, :attitudes, :abilities,
+      :learning_objectives)
     end
 end

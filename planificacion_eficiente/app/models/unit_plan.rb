@@ -11,7 +11,7 @@
 #
 
 class UnitPlan < ApplicationRecord
-  has_many :abilities
+  has_and_belongs_to_many :abilities
   has_many :learning_objectives
   has_many :attitudes
   has_many :previous_learnings
