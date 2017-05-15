@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170512210205) do
+ActiveRecord::Schema.define(version: 20170514233747) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +51,11 @@ ActiveRecord::Schema.define(version: 20170512210205) do
     t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id"
   end
 
+  create_table "attitudes_unit_plans", force: :cascade do |t|
+    t.integer "unit_plan_id"
+    t.integer "attitude_id"
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -69,6 +73,17 @@ ActiveRecord::Schema.define(version: 20170512210205) do
     t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id"
   end
 
+  create_table "learning_objectives_unit_plans", force: :cascade do |t|
+    t.integer "unit_plan_id"
+    t.integer "learning_objective_id"
+  end
+
+  create_table "learnings", force: :cascade do |t|
+    t.string   "objective"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "plans", force: :cascade do |t|
     t.string   "grade"
@@ -77,6 +92,14 @@ ActiveRecord::Schema.define(version: 20170512210205) do
     t.integer  "total_hours"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "previous_learnings", force: :cascade do |t|
@@ -135,6 +158,11 @@ ActiveRecord::Schema.define(version: 20170512210205) do
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
     t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
+  end
+
+  create_table "unit_plans_abilities", force: :cascade do |t|
+    t.integer "unit_plan_id"
+    t.integer "ability_id"
   end
 
 end

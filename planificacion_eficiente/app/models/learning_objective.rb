@@ -9,5 +9,5 @@
 #
 
 class LearningObjective < ApplicationRecord
-  belongs_to :unit_plan
+  has_and_belongs_to_many :unit_plans
 end

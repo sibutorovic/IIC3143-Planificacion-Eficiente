@@ -28,12 +28,35 @@ class UnitPlansController < ApplicationController
   # POST /unit_plans
   # POST /unit_plans.json
   def create
-    raise unit_plan_params.inspect
+    learning_objectives =  params["unit_plan"]["learning_objectives"]
+    abilities = params["unit_plan"]["abilities"]
+    attitudes = params["unit_plan"]["attitudes"]
+    previous_learnings = params["unit_plan"]["previous_learnings"]
+
+    learn_objectives_objs= LearningObjective.where(id: learning_objectives)
+    abilities_objs = Ability.where(id: abilities)
+    attitude_objs = Attitude.where(id: attitudes)
+    previous_learnings_objs = PreviousLearning.where(id: previous_learnings)
+
     unit_plan_params_new = unit_plan_params.slice(:title, :total_hours_unit, :objective)
     @unit_plan = UnitPlan.new(unit_plan_params_new)
-    prev_learning = PreviousLearning.find_by(id: unit_plan_params[:previous_learnings])
-    @unit_plan.previous_learnings << prev_learning
 
+    learn_objectives_objs.each do |l|
+      @unit_plan.learning_objectives << l
+    end
+
+    abilities_objs.each do |a|
+      @unit_plan.abilities << a
+    end
+
+    attitude_objs.each do |at|
+      @unit_plan.attitudes << at
+    end
+
+    previous_learnings_objs.each do |prev|
+      @unit_plan.previous_learnings << prev
+    end
+    
     respond_to do |format|
       if @unit_plan.save
         format.html {redirect_to @unit_plan, notice: 'Unit plan was successfully created.' }
