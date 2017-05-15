@@ -28,6 +28,12 @@ class UnitPlansController < ApplicationController
 
   # GET /unit_plans/1/edit
   def edit
+    @previous_learnings = PreviousLearning.all
+    @learning_objectives = LearningObjective.all
+    @attitudes = Attitude.all
+    @abilities = Ability.all
+
+
   end
 
   # POST /unit_plans
@@ -76,6 +82,7 @@ class UnitPlansController < ApplicationController
   # PATCH/PUT /unit_plans/1
   # PATCH/PUT /unit_plans/1.json
   def update
+    raise unit_plan_params.inspect
     respond_to do |format|
       if @unit_plan.update(unit_plan_params)
         format.html { redirect_to @unit_plan, notice: 'Unit plan was successfully updated.' }

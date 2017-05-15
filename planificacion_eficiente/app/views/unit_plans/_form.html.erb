@@ -106,7 +106,11 @@
     $('#new_learning-objective').hide();
     $('#cancel-learning-objective-form').hide();
 
-
+    $('option').mousedown(function(e) {
+    e.preventDefault();
+    $(this).prop('selected', !$(this).prop('selected'));
+    return false;
+    });
 
     $('#prev-learning-form-button').click(function(event){
       event.preventDefault();
@@ -140,6 +144,11 @@
             $('#prev-learning-select').prepend('<option value="' + data.id + '">' +  data.title + '</option>');
             $('#new_previous_learning').fadeOut();
             $('#cancel-prev-learning-form').fadeOut();
+            $('#prev-learning-select').find("[value='" + data.id + "']").mousedown(function(e) {
+              e.preventDefault();
+              $(this).prop('selected', !$(this).prop('selected'));
+              return false;
+            });
             elem1.val("");
             elem2.val("");
             elem3.val("");
@@ -168,6 +177,11 @@
         success:function(data){
             console.log(data);
             $('#unit_plan_attitudes').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
+            $('#unit_plan_attitudes').find("[value='" + data.id + "']").mousedown(function(e) {
+              e.preventDefault();
+              $(this).prop('selected', !$(this).prop('selected'));
+              return false;
+            });
             $('#new_attitude').fadeOut();
             $('#cancel-attitude-form').fadeOut();
             elem.val("");
@@ -197,6 +211,11 @@
             $('#unit_plan_abilities').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
             $('#new_ability').fadeOut();
             $('#cancel-ability-form').fadeOut();
+            $('#unit_plan_abilities').find("[value='" + data.id + "']").mousedown(function(e) {
+              e.preventDefault();
+              $(this).prop('selected', !$(this).prop('selected'));
+              return false;
+            });
             elem.val("");
         },
         error:function(data){
@@ -223,6 +242,11 @@
             $('#unit_plan_learning_objectives').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
             $('#new_learning-objective').fadeOut();
             $('#cancel-learning-objective-form').fadeOut();
+            $('#unit_plan_learning_objectives').find("[value='" + data.id + "']").mousedown(function(e) {
+              e.preventDefault();
+              $(this).prop('selected', !$(this).prop('selected'));
+              return false;
+            });
             elem.val("");
         },
         error:function(data){
