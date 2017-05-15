@@ -29,7 +29,7 @@ class LearningObjectivesController < ApplicationController
     respond_to do |format|
       if @learning_objective.save
         format.html { redirect_to @learning_objective, notice: 'Learning objective was successfully created.' }
-        format.json { render :show, status: :created, location: @learning_objective }
+        format.json { render json: @learning_objective, status: :created, location: @learning_objective }
       else
         format.html { render :new }
         format.json { render json: @learning_objective.errors, status: :unprocessable_entity }

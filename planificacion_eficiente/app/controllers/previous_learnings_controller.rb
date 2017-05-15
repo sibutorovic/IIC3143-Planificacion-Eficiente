@@ -29,7 +29,7 @@ class PreviousLearningsController < ApplicationController
     respond_to do |format|
       if @previous_learning.save
         format.html { redirect_to @previous_learning, notice: 'Previous learning was successfully created.' }
-        format.json { render :show, status: :created, location: @previous_learning }
+        format.json { render json: @previous_learning, status: :created, location: @previous_learning }
       else
         format.html { render :new }
         format.json { render json: @previous_learning.errors, status: :unprocessable_entity }

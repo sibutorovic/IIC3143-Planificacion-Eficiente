@@ -29,7 +29,7 @@ class AbilitiesController < ApplicationController
     respond_to do |format|
       if @ability.save
         format.html { redirect_to @ability, notice: 'Ability was successfully created.' }
-        format.json { render :show, status: :created, location: @ability }
+        format.json { render json: @ability, status: :created, location: @ability }
       else
         format.html { render :new }
         format.json { render json: @ability.errors, status: :unprocessable_entity }

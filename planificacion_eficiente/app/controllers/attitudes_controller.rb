@@ -29,7 +29,7 @@ class AttitudesController < ApplicationController
     respond_to do |format|
       if @attitude.save
         format.html { redirect_to @attitude, notice: 'Attitude was successfully created.' }
-        format.json { render :show, status: :created, location: @attitude }
+        format.json { render json: @attitude, status: :created, location: @attitude }
       else
         format.html { render :new }
         format.json { render json: @attitude.errors, status: :unprocessable_entity }

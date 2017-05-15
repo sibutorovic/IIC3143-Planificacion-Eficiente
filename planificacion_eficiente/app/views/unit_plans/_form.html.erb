@@ -28,7 +28,13 @@
   <div class="form-group">
     <%= f.label :previous_learnings,'Aprendizaje anterior',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.collection_select :previous_learnings, @previous_learnings, :id , :title, {}, {:multiple => true, class: 'form-control'} %>
+      <%= f.collection_select :previous_learnings, @previous_learnings, :id , :title, {}, {:multiple => true, class: 'form-control', id: "prev-learning-select"} %>
+      <a onClick="form_action('#new_previous_learning', '#cancel-prev-learning-form', true)" class="btn btn-primary" style="margin-top: 8px;">Add new</a>
+      <a onClick="form_action('#new_previous_learning' , '#cancel-prev-learning-form', false)" class="btn btn-danger" id="cancel-prev-learning-form" style="margin-top: 8px;">Cancel</a>
+      <div class="" id="new_previous_learning">
+        <h3>New Previous learning</h3>
+        <%= render 'prev_learning_form' %>
+      </div>
     </div>
   </div>
 
@@ -36,6 +42,12 @@
     <%= f.label :abilities,'Habilidades',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :abilities, @abilities, :id , :name, {}, {:multiple => true,  class: 'form-control'} %>
+      <a onClick="form_action('#new_ability', '#cancel-ability-form', true)" class="btn btn-primary" style="margin-top: 8px;">Add new</a>
+      <a onClick="form_action('#new_ability' , '#cancel-ability-form', false)" class="btn btn-danger" id="cancel-ability-form" style="margin-top: 8px;">Cancel</a>
+      <div class="" id="new_ability">
+        <h3>New Ability</h3>
+        <%= render 'ability_form' %>
+      </div>
     </div>
   </div>
 
@@ -43,6 +55,12 @@
     <%= f.label :learning_objectives,'Objetivos de aprendizaje - Ejes' ,class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :learning_objectives, @learning_objectives, :id , :name, {}, {:multiple => true, class: 'form-control'}%>
+      <a onClick="form_action('#new_learning-objective', '#cancel-learning-objective-form', true)" class="btn btn-primary" style="margin-top: 8px;">Add new</a>
+      <a onClick="form_action('#new_learning-objective', '#cancel-learning-objective-form', false)" class="btn btn-danger" id="cancel-learning-objective-form" style="margin-top: 8px;">Cancel</a>
+      <div class="" id="new_learning-objective">
+        <h3>New Learning Objective</h3>
+        <%= render 'learning_objective_form' %>
+      </div>
     </div>
   </div>
 
@@ -50,6 +68,12 @@
     <%= f.label :attitudes,'Actitudes',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :attitudes, @attitudes, :id , :name, {}, {:multiple => true, class: 'form-control'} %>
+      <a onClick="form_action('#new_attitude', '#cancel-attitude-form', true)" class="btn btn-primary" style="margin-top: 8px;">Add new</a>
+      <a onClick="form_action('#new_attitude', '#cancel-attitude-form', false)" class="btn btn-danger" id="cancel-attitude-form" style="margin-top: 8px;">Cancel</a>
+      <div class="" id="new_attitude">
+        <h3>New attitude</h3>
+        <%= render 'attitude_form' %>
+      </div>
     </div>
   </div>
 
@@ -70,23 +94,165 @@
 
 <script>
   $(document).ready(function() {
-  });
-  function a_onClick() {
-    var new_val = $('#prev-learning-add').val();
-    if(new_val != ""){
+    $('#new_previous_learning').hide();
+    $('#cancel-prev-learning-form').hide();
 
-      var vals = $('#prev-learning-label').text();
-      var sep = ", "
-      if(vals == "Values") {
-        $('#prev-learning-label').text(" ");
-        var vals = ""
-        var sep = ""
-      }
-      $('#prev-learning-label').text(vals  + sep + new_val);
-      $('#prev-learning-add').val("");
+    $('#new_attitude').hide();
+    $('#cancel-attitude-form').hide();
+
+    $('#new_ability').hide();
+    $('#cancel-ability-form').hide();
+
+    $('#new_learning-objective').hide();
+    $('#cancel-learning-objective-form').hide();
+
+
+
+    $('#prev-learning-form-button').click(function(event){
+      event.preventDefault();
+      var prev_learning_title = $(this).parent().parent().parent().find("[name='title']").val();
+      var prev_learning_content = $(this).parent().parent().parent().find("[name='content']").val();
+      var prev_learning_generic_activity = $(this).parent().parent().parent().find("[name='generic_activity']").val();
+      var prev_learning_achievement_indicator = $(this).parent().parent().parent().find("[name='achievement_indicator']").val();
+      var prev_learning_estimated_time = parseInt($(this).parent().parent().parent().find("[name='estimated_time']").val());
+      var elem1 = $(this).parent().parent().parent().find("[name='title']");
+      var elem2 = $(this).parent().parent().parent().find("[name='content']");
+      var elem3= $(this).parent().parent().parent().find("[name='generic_activity']");
+      var elem4 = $(this).parent().parent().parent().find("[name='achievement_indicator']");
+      var elem5 = $(this).parent().parent().parent().find("[name='estimated_time']");
+
+
+      $.ajax({
+        url:'/previous_learnings',
+        type:'POST',
+        dataType:'json',
+        data:{
+            previous_learning:{
+              title: prev_learning_title,
+              content: prev_learning_content,
+              generic_activity: prev_learning_generic_activity,
+              achievement_indicator: prev_learning_achievement_indicator,
+              estimated_time: prev_learning_estimated_time
+            }
+        },
+        success:function(data){
+            console.log(data);
+            $('#prev-learning-select').prepend('<option value="' + data.id + '">' +  data.title + '</option>');
+            $('#new_previous_learning').fadeOut();
+            $('#cancel-prev-learning-form').fadeOut();
+            elem1.val("");
+            elem2.val("");
+            elem3.val("");
+            elem4.val("");
+            elem.val("");
+        },
+        error:function(data){
+            alert("No se pudo crear el aprendizaje previo");
+        }
+      });
+    });
+
+    $('#attitude-form-button').click(function(event){
+      event.preventDefault();
+      var attitude_name = $(this).parent().parent().parent().find("[name='name']").val();
+      var elem = $(this).parent().parent().parent().find("[name='name']");
+      $.ajax({
+        url:'/attitudes',
+        type:'POST',
+        dataType:'json',
+        data:{
+            attitude:{
+              name: attitude_name
+            }
+        },
+        success:function(data){
+            console.log(data);
+            $('#unit_plan_attitudes').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
+            $('#new_attitude').fadeOut();
+            $('#cancel-attitude-form').fadeOut();
+            elem.val("");
+
+        },
+        error:function(data){
+            alert("No se pudo crear la actitud");
+        }
+      });
+    });
+
+    $('#ability-form-button').click(function(event){
+      event.preventDefault();
+      var ability_name = $(this).parent().parent().parent().find("[name='name']").val();
+      var elem = $(this).parent().parent().parent().find("[name='name']");
+      $.ajax({
+        url:'/abilities',
+        type:'POST',
+        dataType:'json',
+        data:{
+            ability:{
+              name: ability_name
+            }
+        },
+        success:function(data){
+            console.log(data);
+            $('#unit_plan_abilities').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
+            $('#new_ability').fadeOut();
+            $('#cancel-ability-form').fadeOut();
+            elem.val("");
+        },
+        error:function(data){
+            alert("No se pudo crear la habilidad");
+        }
+      });
+    });
+
+    $('#learning-objective-form-button').click(function(event){
+      event.preventDefault();
+      var learning_objective_name = $(this).parent().parent().parent().find("[name='name']").val();
+      var elem = $(this).parent().parent().parent().find("[name='name']");
+      $.ajax({
+        url:'/learning_objectives',
+        type:'POST',
+        dataType:'json',
+        data:{
+            learning_objective:{
+              name: learning_objective_name
+            }
+        },
+        success:function(data){
+            console.log(data);
+            $('#unit_plan_learning_objectives').prepend('<option value="' + data.id + '">' +  data.name + '</option>');
+            $('#new_learning-objective').fadeOut();
+            $('#cancel-learning-objective-form').fadeOut();
+            elem.val("");
+        },
+        error:function(data){
+            alert("No se pudo crear la habilidad");
+        }
+      });
+    });
+
+  });
+
+  function form_action(target, button, action){
+    console.log(target);
+    if(!action)
+    {
+      //$(target).addClass('hide');
+      //$(target).removeClass('show');
+      $(target).fadeOut();
+      //$(button).addClass('hide');
+      //$(button).removeClass('show');
+      $(button).fadeOut();
+
     }
-    else {
-      alert("El campo no puede ser vacio");
+    else{
+    //$(target).removeClass('hide');
+    //$(target).addClass('show');
+    $(target).fadeIn();
+    //$(button).addClass('show');
+    //$(button).removeClass('hide');
+    $(button).fadeIn();
+
     }
   }
  </script>

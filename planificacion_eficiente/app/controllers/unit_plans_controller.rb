@@ -19,6 +19,11 @@ class UnitPlansController < ApplicationController
     @learning_objectives = LearningObjective.all
     @abilities = Ability.all
     @attitudes = Attitude.all
+
+    @previous_learning = PreviousLearning.new
+    @attitude = Attitude.new
+    @ability = Ability.new
+    @learning_objective = LearningObjective.new
   end
 
   # GET /unit_plans/1/edit
@@ -56,7 +61,7 @@ class UnitPlansController < ApplicationController
     previous_learnings_objs.each do |prev|
       @unit_plan.previous_learnings << prev
     end
-    
+
     respond_to do |format|
       if @unit_plan.save
         format.html {redirect_to @unit_plan, notice: 'Unit plan was successfully created.' }
