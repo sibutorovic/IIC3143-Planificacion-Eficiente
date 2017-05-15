@@ -78,13 +78,6 @@ ActiveRecord::Schema.define(version: 20170514233747) do
     t.integer "learning_objective_id"
   end
 
-  create_table "learnings", force: :cascade do |t|
-    t.string   "objective"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "plans", force: :cascade do |t|
     t.string   "grade"
     t.string   "subject"
@@ -92,14 +85,6 @@ ActiveRecord::Schema.define(version: 20170514233747) do
     t.integer  "total_hours"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "published"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "previous_learnings", force: :cascade do |t|
@@ -158,11 +143,6 @@ ActiveRecord::Schema.define(version: 20170514233747) do
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
     t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
-  end
-
-  create_table "unit_plans_abilities", force: :cascade do |t|
-    t.integer "unit_plan_id"
-    t.integer "ability_id"
   end
 
 end

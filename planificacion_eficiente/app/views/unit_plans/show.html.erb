@@ -7,17 +7,43 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show unit_plan</h1>
+  <h1>Unit Plan</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @unit_plan.title %></dd>
+<table >
 
-  <dt>Total hours unit:</dt>
-  <dd><%= @unit_plan.total_hours_unit %></dd>
+  <tr>
+    <td class="fila_celeste">Planificación Unidad Didáctica</td>
+  </tr>
 
-  <dt>Objective:</dt>
-  <dd><%= @unit_plan.objective %></dd>
+  <tr>
+    <td>Objetivo o propósito general de la unidad:</td>
+  </tr>
 
-</dl>
+
+
+  <tr>
+    <td class = "habilidades_unit_plan">Habilidades</td>
+    <td class = "ejes_unit_plan">Eje 1</br>Eje 2</br>Eje 3</td>
+    <td class = "actitudes_unit_plan">Actitudes</td>
+  </tr>
+
+
+  <tr>
+    <td class = "fila_seis_unit">Conocimiento(s) previo(s)</td>
+    <td class = "fila_seis_unit">Contenido(s)</td>
+    <td class = "fila_seis_unit">Actividad(es) genérica(s)</td>
+    <td class = "fila_seis_unit">Indicadores de evaluación o logro</td>
+    <td class = "fila_seis_unit">Tiempo estimado</td>
+  </tr>
+
+  <tr>
+    <td class = "espacio_vacio"> </td>
+    <td class = "espacio_vacio"> </td>
+    <td class = "espacio_vacio"> </td>
+    <td class = "espacio_vacio_derecha"> </td>
+  </tr>
+
+
+
+</table>
