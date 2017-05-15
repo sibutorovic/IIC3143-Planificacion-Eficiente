@@ -35,6 +35,14 @@
           <li><%= link_to "Hogar", root_path %></li>
           <li><%= link_to "Acerca de", static_pages_about_path %></li>
           <li><%= link_to "Contacto", static_pages_help_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to('Editar Perfil', edit_user_registration_path) %></li>
+            <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
+            <li><%= current_user.email %></li>
+          <% else %>
+            <li><%= link_to('Registrar', new_user_registration_path)  %></li>
+            <li><%= link_to('Ingresar', new_user_session_path)  %></li>
+        <% end %>
         </ul>
       </div>
     </div>

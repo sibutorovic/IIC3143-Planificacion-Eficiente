@@ -9,6 +9,8 @@
 #  estimated_time        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  unit_plan_id          :integer
+#  title                 :string
 #
 
 require 'test_helper'
