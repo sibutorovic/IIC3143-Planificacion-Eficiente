@@ -10,6 +10,10 @@ class UnitPlansController < ApplicationController
   # GET /unit_plans/1
   # GET /unit_plans/1.json
   def show
+    @abilities = @unit_plan.abilities
+    @learning_objectives = @unit_plan.learning_objectives
+    @attitudes = @unit_plan.attitudes
+    @previous_learnings = @unit_plan.previous_learnings
   end
 
   # GET /unit_plans/new

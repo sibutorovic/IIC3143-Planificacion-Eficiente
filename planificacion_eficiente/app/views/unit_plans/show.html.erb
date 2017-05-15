@@ -10,39 +10,55 @@
   <h1>Unit Plan</h1>
 </div>
 
-<table >
+<table id="table_unit_plan">
 
   <tr>
     <td class="fila_celeste">Planificación Unidad Didáctica</td>
   </tr>
 
   <tr>
-    <td>Objetivo o propósito general de la unidad:</td>
+    <td id="objetivo"><em>Objetivo o propósito general de la unidad:</em><%=@unit_plan.objective%></td>
   </tr>
 
+
+
+  <tr id="tercera_fila">
+    <td class = "habilidades_unit_plan"><em>Habilidades:</em></br>
+      <%@abilities.each do |ability| %>
+        <%= ability.name%></br>
+      <%end%>
+    </td>
+    <td class = "ejes_unit_plan"><em>Objetivos de aprendizaje:</em></br>
+      <%@learning_objectives.each do |learning_objective| %>
+        <%= learning_objective.name%></br>
+      <%end%>
+    </td>
+    <td class = "actitudes_unit_plan"><em>Actitudes:</em></br>
+      <%@attitudes.each do |attitude| %>
+        <%= attitude.name%></br>
+      <%end%>
+    </td>
+  </tr>
 
 
   <tr>
-    <td class = "habilidades_unit_plan">Habilidades</td>
-    <td class = "ejes_unit_plan">Eje 1</br>Eje 2</br>Eje 3</td>
-    <td class = "actitudes_unit_plan">Actitudes</td>
+    <td class = "fila_seis_unit">Conocimiento previo</td>
+    <td class = "fila_seis_unit">Contenido</td>
+    <td class = "fila_seis_unit">Actividad genérica</td>
+    <td class = "fila_seis_unit">Indicador de evaluación o logro</td>
+    <td class = "fila_seis_unit ultima_columna" >Tiempo estimado</td>
   </tr>
 
+  <% @previous_learnings.each do |previous_learning| %>
+    <tr>
+      <td class="ultima_fila"><%= previous_learning.title %></td>
+      <td class="ultima_fila"><%= previous_learning.content %></td>
+      <td class="ultima_fila"><%= previous_learning.generic_activity %></td>
+      <td class="ultima_fila"><%= previous_learning.achievement_indicator %></td>
+      <td class="ultima_fila ultima_columna"><%= previous_learning.estimated_time %></td>
+    </tr>
+  <%end%>
 
-  <tr>
-    <td class = "fila_seis_unit">Conocimiento(s) previo(s)</td>
-    <td class = "fila_seis_unit">Contenido(s)</td>
-    <td class = "fila_seis_unit">Actividad(es) genérica(s)</td>
-    <td class = "fila_seis_unit">Indicadores de evaluación o logro</td>
-    <td class = "fila_seis_unit">Tiempo estimado</td>
-  </tr>
-
-  <tr>
-    <td class = "espacio_vacio"> </td>
-    <td class = "espacio_vacio"> </td>
-    <td class = "espacio_vacio"> </td>
-    <td class = "espacio_vacio_derecha"> </td>
-  </tr>
 
 
 
