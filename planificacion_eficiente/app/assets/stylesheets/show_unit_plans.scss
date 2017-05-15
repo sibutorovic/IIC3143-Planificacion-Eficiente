@@ -1,0 +1,72 @@
+
+
+.habilidades_unit_plan{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+  border-right: solid;
+}
+
+.ejes_unit_plan{
+  width: 34%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+  border-right: solid;
+}
+
+.actitudes_unit_plan{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.fila_seis_unit{
+  width:20%;
+  display: inline-block;
+  padding-top: 10px;
+  text-align: center;
+  font-weight:bold;
+  border-right: solid;
+  border-bottom: solid;
+}
+
+.ultima_fila{
+  width:20%;
+  display: inline-block;
+  padding-top: 10px;
+  text-align: center;
+  border-bottom: solid;
+  border-right: solid;
+}
+
+
+#table_unit_plan{
+  border:solid;
+  border-bottom: none;
+}
+
+#objetivo{
+  border-bottom: solid;
+}
+#objetivo em{
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+#tercera_fila{
+  border-bottom: solid;
+}
+
+#tercera_fila em{
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.ultima_columna{
+  border-right: none;
+}

@@ -7,17 +7,59 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show unit_plan</h1>
+  <h1>Unit Plan</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @unit_plan.title %></dd>
+<table id="table_unit_plan">
 
-  <dt>Total hours unit:</dt>
-  <dd><%= @unit_plan.total_hours_unit %></dd>
+  <tr>
+    <td class="fila_celeste">Planificación Unidad Didáctica</td>
+  </tr>
 
-  <dt>Objective:</dt>
-  <dd><%= @unit_plan.objective %></dd>
+  <tr>
+    <td id="objetivo"><em>Objetivo o propósito general de la unidad:</em><%=@unit_plan.objective%></td>
+  </tr>
 
-</dl>
+
+
+  <tr id="tercera_fila">
+    <td class = "habilidades_unit_plan"><em>Habilidades:</em></br>
+      <%@abilities.each do |ability| %>
+        <%= ability.name%></br>
+      <%end%>
+    </td>
+    <td class = "ejes_unit_plan"><em>Objetivos de aprendizaje:</em></br>
+      <%@learning_objectives.each do |learning_objective| %>
+        <%= learning_objective.name%></br>
+      <%end%>
+    </td>
+    <td class = "actitudes_unit_plan"><em>Actitudes:</em></br>
+      <%@attitudes.each do |attitude| %>
+        <%= attitude.name%></br>
+      <%end%>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td class = "fila_seis_unit">Conocimiento previo</td>
+    <td class = "fila_seis_unit">Contenido</td>
+    <td class = "fila_seis_unit">Actividad genérica</td>
+    <td class = "fila_seis_unit">Indicador de evaluación o logro</td>
+    <td class = "fila_seis_unit ultima_columna" >Tiempo estimado</td>
+  </tr>
+
+  <% @previous_learnings.each do |previous_learning| %>
+    <tr>
+      <td class="ultima_fila"><%= previous_learning.title %></td>
+      <td class="ultima_fila"><%= previous_learning.content %></td>
+      <td class="ultima_fila"><%= previous_learning.generic_activity %></td>
+      <td class="ultima_fila"><%= previous_learning.achievement_indicator %></td>
+      <td class="ultima_fila ultima_columna"><%= previous_learning.estimated_time %></td>
+    </tr>
+  <%end%>
+
+
+
+
+</table>
