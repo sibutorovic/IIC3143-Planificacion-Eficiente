@@ -73,6 +73,13 @@ $(document).ready(function() {
       if(maxHeight == null || thisHeight > maxHeight) maxHeight = thisHeight;
   }).height(maxHeight);
 
+  var maxHeight_1 = null;
+  $(".ultima_fila").each(function() {
+    console.log($(this));
+      var thisHeight_1 = $(this).height();
+      if(maxHeight_1 == null || thisHeight_1 > maxHeight_1) maxHeight_1 = thisHeight_1;
+  }).height(maxHeight_1);
+
 });
 
 </script>
