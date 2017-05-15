@@ -6,6 +6,7 @@
   text-align: center;
   padding-top: 10px;
   border-right: solid;
+  border-width: 1px;
 }
 
 .ejes_unit_plan{
@@ -14,6 +15,7 @@
   text-align: center;
   padding-top: 10px;
   border-right: solid;
+  border-width: 1px;
 }
 
 .actitudes_unit_plan{
@@ -31,6 +33,7 @@
   font-weight:bold;
   border-right: solid;
   border-bottom: solid;
+  border-width: 1px;
 }
 
 .ultima_fila{
@@ -40,16 +43,23 @@
   text-align: center;
   border-bottom: solid;
   border-right: solid;
+  border-width: 1px;
+
 }
 
 
 #table_unit_plan{
   border:solid;
   border-bottom: none;
+  border-width: 1px;
+
 }
 
 #objetivo{
   border-bottom: solid;
+  border-top: none;
+  border-width: 1px;
+
 }
 #objetivo em{
   font-weight: bold;
@@ -59,6 +69,8 @@
 
 #tercera_fila{
   border-bottom: solid;
+  border-width: 1px;
+
 }
 
 #tercera_fila em{
@@ -69,4 +81,5 @@
 
 .ultima_columna{
   border-right: none;
+
 }
