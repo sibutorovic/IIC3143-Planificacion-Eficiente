@@ -8,6 +8,7 @@
 #  objective        :text
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  plan_id          :integer
 #
 
 require 'test_helper'
