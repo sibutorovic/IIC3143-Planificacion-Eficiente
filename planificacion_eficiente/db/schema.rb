@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516142436) do
+ActiveRecord::Schema.define(version: 20170516172518) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -78,6 +78,13 @@ ActiveRecord::Schema.define(version: 20170516142436) do
     t.integer "learning_objective_id"
   end
 
+  create_table "learnings", force: :cascade do |t|
+    t.string   "objective"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "plan_relations", force: :cascade do |t|
     t.integer  "semester"
     t.integer  "order"
@@ -94,6 +101,19 @@ ActiveRecord::Schema.define(version: 20170516142436) do
     t.integer  "total_hours"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "plans_unit_plans", force: :cascade do |t|
+    t.integer "unit_plan_id"
+    t.integer "plan_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "previous_learnings", force: :cascade do |t|
@@ -152,6 +172,11 @@ ActiveRecord::Schema.define(version: 20170516142436) do
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
     t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
+  end
+
+  create_table "unit_plans_abilities", force: :cascade do |t|
+    t.integer "unit_plan_id"
+    t.integer "ability_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -14,5 +14,5 @@
 class Plan < ApplicationRecord
   belongs_to :teacher
   has_many :feedbacks
-  has_many :unit_plans
+  has_and_belongs_to_many :unit_plans
 end

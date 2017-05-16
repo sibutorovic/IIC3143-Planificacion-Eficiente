@@ -43,6 +43,7 @@ class UnitPlansController < ApplicationController
   # POST /unit_plans
   # POST /unit_plans.json
   def create
+    raise params.inspect
     learning_objectives =  params["unit_plan"]["learning_objectives"]
     abilities = params["unit_plan"]["abilities"]
     attitudes = params["unit_plan"]["attitudes"]
