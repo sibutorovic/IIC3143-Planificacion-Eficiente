@@ -9,6 +9,12 @@
   </div>
 
   <div class="field">
+    <%= f.label :rol %><br />
+    <%= f.select(:role, options_for_select([["Admin","admin"],
+    ["Profesor","teacher"],["Jefe de Unidad","unit_head"]])) %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
