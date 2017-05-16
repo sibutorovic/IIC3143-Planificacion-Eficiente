@@ -1,22 +1,21 @@
 <div class="page-header">
   <%= link_to new_plan_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Plan
+    Nueva Planificación
   <% end %>
-  <h1>Listing plans</h1>
+  <h1>Planificaciones Anuales</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Grade</th>
-            <th>Subject</th>
-            <th>Year</th>
-            <th>Total hours</th>
-            <th></th>
-        <th></th>
-        <th></th>
+            <th>Curso</th>
+            <th>Asignatura</th>
+            <th>Año</th>
+            <th>Total horas</th>
+
+  
       </tr>
     </thead>
 
@@ -26,9 +25,9 @@
             <td><%= plan.subject %></td>
             <td><%= plan.year %></td>
             <td><%= plan.total_hours %></td>
-            <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', plan %></td>
+        <td><%= link_to 'Editar', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Eliminar', plan, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
       <% end %>
     </tbody>
   </table>

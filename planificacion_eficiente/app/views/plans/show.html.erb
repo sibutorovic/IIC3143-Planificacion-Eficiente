@@ -85,6 +85,10 @@
 
 </table>
 
+<% @unit_plans.each do |i| %>
+  <%= i %>
+<%end%>
+
 <%= link_to "Descargar PDF",
   plan_path(@plan, format: "pdf"),
   target: "_blank",

@@ -10,6 +10,7 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
+    @unit_plans = @plan.unit_plans
     respond_to do |format|
     format.html
     format.pdf do
@@ -31,6 +32,7 @@ end
     @subjects = ['Matemáticas','Lenguaje y Comunicación','Historia',
       'Educación Física','Música']
     @unit_plans = UnitPlan.all
+    @unit_plan = UnitPlan.new
 
 
   end
@@ -43,6 +45,13 @@ end
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+
+    unit_plans = params["plan"]["unit_plans"]
+    unit_plans_objs = UnitPlan.where(id: unit_plans)
+    unit_plans_objs.each do |l|
+      @plan.unit_plans << l
+    end
+
 
     respond_to do |format|
       if @plan.save

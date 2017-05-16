@@ -1,0 +1,2 @@
+class PlanRelation < ApplicationRecord
+end
