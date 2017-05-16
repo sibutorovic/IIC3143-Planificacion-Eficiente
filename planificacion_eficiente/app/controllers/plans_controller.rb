@@ -10,6 +10,7 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
+
     @unit_plans = @plan.unit_plans
     respond_to do |format|
     format.html

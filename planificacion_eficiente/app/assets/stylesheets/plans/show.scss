@@ -36,6 +36,7 @@
   margin-top: 10px;
   padding: 10px;
   width:40%;
+  display: inline-block;
 }
 
 table{
@@ -58,4 +59,8 @@ table{
 .ejes_tematicos_plan{
   width:20%;
   display: inline-block;
+}
+
+.download{
+  display: block;
 }

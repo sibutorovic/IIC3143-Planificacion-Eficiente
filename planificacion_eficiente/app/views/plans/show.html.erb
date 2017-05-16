@@ -74,17 +74,23 @@
 
       <tr>
         <td class="contenidos_plan">
-            Rellenar aqui</br>
+          <% unit_plan.previous_learnings.each do |previous_learning| %>
+            <%= previous_learning.content %></br>
+          <%end%>
         </td>
       </tr>
 
       <tr>
-        <td class="fila_celeste">Semanas estimadas</td>
+        <td class="fila_celeste">Horas estimadas</td>
       </tr>
 
       <tr>
         <td class="semanas_plan">
-          Rellenar aqui</br>
+          <% @estimated_time = 0 %>
+          <% unit_plan.previous_learnings.each do |previous_learning| %>
+            <% @estimated_time += previous_learning.estimated_time %>
+          <% end %>
+          <%= @estimated_time %>
         </td>
       </tr>
 
