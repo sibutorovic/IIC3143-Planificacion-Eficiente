@@ -3,6 +3,7 @@
 </div>
 <p>Los mas pulentos de desarrollo, puros sietes y estrellita en el capstone</p>
 
+<!--
 <% if user_signed_in? %>
   <li>
   <%= link_to('Edit registration', edit_user_registration_path) %>
@@ -11,7 +12,7 @@
   <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
   </li>
   <li>
-  <%= current_user.email %>
+  <%= current_user.role %>
   </li>
 <% else %>
   <li>
@@ -21,3 +22,4 @@
   <%= link_to('Sign in', new_user_session_path)  %>
   </li>
 <% end %>
+-->
