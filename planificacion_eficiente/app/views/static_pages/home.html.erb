@@ -1,6 +1,23 @@
 <div class="page-header">
-  <h1>Welcome!</h1>
+  <h1>Planificación Eficiente</h1>
 </div>
+
+
+<%if !user_signed_in?%>
+  <p> Bienvenido a Planificación Eficiente, la aplicación para crear, 
+  manejar y compartir tus planes curriculares para enseñanza básica y media.</p>
+  <br/>
+  <p> Con Planificación Eficiente, organizar el semestre de tus alumnos 
+  es más fácil y rápido que nunca. ¡Pruébalo hoy!.</p>
+  <br/>
+  <p> <%= link_to "¿No estas registrado? ¡Crea tu cuenta ahora!", new_user_registration_path %></p>
+  <p> <%= link_to "¿Ya tienes tu cuenta? ¡Ingresa y comienza a crear!", new_user_session_path %></p>
+<%else%>
+  <p> Comienza a planificar.</p>
+  <p> <%= link_to "Crear un plan anual", new_plan_path %></p>
+  <p> <%= link_to "Crear una unidad didáctica", new_unit_plan_path %></p>
+<%end%>
+<!--
 <p> <%= link_to "Unit plans!", unit_plans_path %></p>
 <p> <%= link_to "Previous learnings!", previous_learnings_path %></p>
 <p> <%= link_to "Plans!", plans_path %></p>
@@ -8,4 +25,4 @@
 <p> <%= link_to "Abilities!", abilities_path %></p>
 <p> <%= link_to "Attitudes!", attitudes_path %></p>
 <p> <%= link_to "Feedbacks!", feedbacks_path %></p>
-
+-->
