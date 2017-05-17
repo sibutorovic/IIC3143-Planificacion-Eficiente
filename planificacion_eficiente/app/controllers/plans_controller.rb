@@ -13,14 +13,14 @@ class PlansController < ApplicationController
 
     @unit_plans = @plan.unit_plans
     respond_to do |format|
-    format.html
-    format.pdf do
-    render  pdf: "plan",
-            template: "plans/show.pdf.erb",
-            layout:'application',
-            locals: {:plan => @plan}
-  end
-end
+      format.html
+      format.pdf do
+        render :pdf => "pdf",
+          #:disposition => "inline",
+          :template => "plans/show.pdf.erb",
+          :layout => "pdf_layout.pdf.erb"
+        end
+    end
   end
 
   # GET /plans/new

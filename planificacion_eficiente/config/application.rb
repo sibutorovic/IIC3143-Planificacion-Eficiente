@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'pdfkit'
+#require 'pdfkit'
 
 #config.middleware.use PDFKit::Middleware, :print_media_type => true
 # Require the gems listed in Gemfile, including any gems

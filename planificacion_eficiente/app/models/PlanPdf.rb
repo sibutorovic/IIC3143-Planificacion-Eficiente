@@ -18,9 +18,9 @@ class PlanPdf
 
   private
 
-    attr_reader :invoice
+    attr_reader :plan
 
     def as_html
-      render template: "plans/pdf", layout: "plan_pdf", locals: { invoice: invoice }
+      render layout: "pdf", locals: { plan: plan }
     end
 end
