@@ -26,13 +26,13 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :previous_learnings,'Conocimientos previos',class: "col-sm-2 control-label" %>
+    <%= f.label :previous_learnings,'Contenidos',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.collection_select :previous_learnings, @previous_learnings, :id , :title, {}, {:multiple => true, class: 'form-control', id: "prev-learning-select"} %>
+      <%= f.collection_select :previous_learnings, @previous_learnings, :id , :content, {}, {:multiple => true, class: 'form-control', id: "prev-learning-select"} %>
       <a onClick="form_action('#new_previous_learning', '#cancel-prev-learning-form', true)" class="btn btn-primary" style="margin-top: 8px;">Agregar</a>
       <a onClick="form_action('#new_previous_learning' , '#cancel-prev-learning-form', false)" class="btn btn-danger" id="cancel-prev-learning-form" style="margin-top: 8px;">Cancelar</a>
       <div class="" id="new_previous_learning">
-        <h3>Nuevo Conocimiento Previo</h3>
+        <h3>Nuevo Contenido</h3>
         <%= render 'prev_learning_form' %>
       </div>
     </div>
@@ -141,7 +141,7 @@
         },
         success:function(data){
             console.log(data);
-            $('#prev-learning-select').prepend('<option value="' + data.id + '">' +  data.title + '</option>');
+            $('#prev-learning-select').prepend('<option value="' + data.id + '">' +  data.content + '</option>');
             $('#new_previous_learning').fadeOut();
             $('#cancel-prev-learning-form').fadeOut();
             $('#prev-learning-select').find("[value='" + data.id + "']").mousedown(function(e) {

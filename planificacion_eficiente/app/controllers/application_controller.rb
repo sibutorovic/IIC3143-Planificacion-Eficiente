@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def current_controller?(names)
+    names.include?(params[:controller]) unless params[:controller].blank? || false
+  end
+
+  helper_method :current_controller?
+
   protected
 
   def configure_permitted_parameters
@@ -19,5 +25,6 @@ class ApplicationController < ActionController::Base
 
 
   end
+
 
 end

@@ -30,3 +30,60 @@
 .show {
   display: block;
 }
+
+.image{
+  background-image: url('school-hd-wallpapers-6.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+        font-family: 'rudiment';
+        src: url('rudiment-webfont.woff') format('woff'),
+          url('rudiment-webfont.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+}
+
+.chalk {
+   font-family: 'rudiment';
+   color:white;
+}
+
+p.chalk{
+  font-size: 23px;
+}
+li.chalk{
+  font-size: 23px;
+}
+
+h1.chalk {
+  font-size: 70px;
+}
+
+h2.chalk {
+  font-size: 50px;
+}
+
+label.chalk{
+  font-size: 23px;
+  white-space:nowrap;
+}
+
+a.chalk{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.right{
+  float:right;
+}
+
+.border {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.offset{
+  margin-top: 12px;
+}

@@ -17,8 +17,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
+</head  >
+<body <%= "class=image" if current_controller?('static_pages') || current_controller?('devise/registrations') || current_controller?('devise/sessions')%> >
   <nav class="navbar navbar-inverse navbar-fixed-top navbar_modificado" role="navigation">
     <div class="container">
       <div class="navbar-header">
