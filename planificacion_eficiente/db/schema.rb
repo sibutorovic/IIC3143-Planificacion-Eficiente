@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516172518) do
+ActiveRecord::Schema.define(version: 20170609210029) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -23,24 +23,6 @@ ActiveRecord::Schema.define(version: 20170516172518) do
   create_table "abilities_unit_plans", force: :cascade do |t|
     t.integer "unit_plan_id"
     t.integer "ability_id"
-  end
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "attitudes", force: :cascade do |t|
@@ -113,42 +95,6 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id"
   end
 
-  create_table "teachers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_teachers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
-  end
-
-  create_table "unit_heads", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_unit_heads_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_unit_heads_on_reset_password_token", unique: true
-  end
-
   create_table "unit_plans", force: :cascade do |t|
     t.string   "title"
     t.integer  "total_hours_unit"
@@ -172,7 +118,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "role"
+    t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
