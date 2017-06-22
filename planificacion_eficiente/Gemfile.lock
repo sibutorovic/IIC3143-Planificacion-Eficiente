@@ -190,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.7.1)
   autoprefixer-rails
+  bcrypt
   bootstrap-generators (~> 3.3.4)
   bootstrap-sass (~> 3.3.6)
   byebug

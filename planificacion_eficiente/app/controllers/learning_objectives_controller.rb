@@ -25,6 +25,7 @@ class LearningObjectivesController < ApplicationController
   # POST /learning_objectives.json
   def create
     @learning_objective = LearningObjective.new(learning_objective_params)
+    @learning_objective.user = current_user
 
     respond_to do |format|
       if @learning_objective.save

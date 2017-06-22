@@ -11,4 +11,5 @@
 
 class Attitude < ApplicationRecord
   has_and_belongs_to_many :unit_plans
+  belongs_to :user
 end

@@ -25,6 +25,7 @@ class AttitudesController < ApplicationController
   # POST /attitudes.json
   def create
     @attitude = Attitude.new(attitude_params)
+    @attitude.user = current_user
 
     respond_to do |format|
       if @attitude.save

@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516172518) do
+ActiveRecord::Schema.define(version: 20170610024825) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
+    t.integer  "user_id"
     t.index ["unit_plan_id"], name: "index_abilities_on_unit_plan_id"
+    t.index ["user_id"], name: "index_abilities_on_user_id"
   end
 
   create_table "abilities_unit_plans", force: :cascade do |t|
@@ -48,7 +50,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
+    t.integer  "user_id"
     t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id"
+    t.index ["user_id"], name: "index_attitudes_on_user_id"
   end
 
   create_table "attitudes_unit_plans", force: :cascade do |t|
@@ -70,7 +74,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
+    t.integer  "user_id"
     t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id"
+    t.index ["user_id"], name: "index_learning_objectives_on_user_id"
   end
 
   create_table "learning_objectives_unit_plans", force: :cascade do |t|
@@ -94,6 +100,8 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.integer  "total_hours"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "plans_unit_plans", force: :cascade do |t|
@@ -110,7 +118,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "updated_at",            null: false
     t.integer  "unit_plan_id"
     t.string   "title"
+    t.integer  "user_id"
     t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id"
+    t.index ["user_id"], name: "index_previous_learnings_on_user_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -156,7 +166,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
+    t.integer  "user_id"
     t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
+    t.index ["user_id"], name: "index_unit_plans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

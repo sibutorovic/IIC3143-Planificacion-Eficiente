@@ -32,7 +32,7 @@ class PlansController < ApplicationController
   'Tercero Medio','Cuarto Medio']
     @subjects = ['Matemáticas','Lenguaje y Comunicación','Historia',
       'Educación Física','Música']
-    @unit_plans = UnitPlan.all
+    @unit_plans = UnitPlan.all.where(user_id: current_user.id)
 
 
   end
@@ -50,6 +50,8 @@ class PlansController < ApplicationController
     unit_plans_objs.each do |l|
       @plan.unit_plans << l
     end
+
+    @plan.user = current_user
 
 
     respond_to do |format|
