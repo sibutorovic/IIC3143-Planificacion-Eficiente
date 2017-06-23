@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shared_plans
   devise_for :users
   root 'static_pages#home'
   get  'static_pages/home'
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
   devise_for :unit_heads
   devise_for :admins
   devise_for :teachers
+  post 'plans/share' =>  'plans#share'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
