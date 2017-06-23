@@ -15,4 +15,6 @@ class Plan < ApplicationRecord
   belongs_to :user
   has_many :feedbacks
   has_and_belongs_to_many :unit_plans
+  has_attached_file :pdf
+  validates_attachment :pdf, content_type: { content_type: "application/pdf" }
 end

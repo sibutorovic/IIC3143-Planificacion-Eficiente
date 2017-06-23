@@ -48,7 +48,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-
+gem "paperclip", "~> 5.0.0"
 gem 'rails_12factor', group: :production
 gem 'bcrypt', platforms: :ruby
 gem 'acts-as-taggable-on', '~> 4.0'
