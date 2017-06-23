@@ -10062,3 +10062,28 @@ Please use the `permit` method to add or remove any key:
 Completed 200 OK in 1192ms (Views: 892.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-06-23 05:26:17 -0400
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:4)
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 460ms (Views: 434.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-06-23 05:26:23 -0400
+Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.2.
+Please use the `permit` method to add or remove any key:
+
+  To add any new key, use the `keys` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:param1, :param2, :param3])
+
+  To remove any existing key, use the `except` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, except: [:email])
+ (called from configure_permitted_parameters at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:15)
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 1853ms (Views: 1839.7ms | ActiveRecord: 2.0ms)
+
+
