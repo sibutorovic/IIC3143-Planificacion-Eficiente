@@ -32,7 +32,7 @@ class PreviousLearningsController < ApplicationController
         format.json { render json: @previous_learning, status: :created, location: @previous_learning }
       else
         format.html { render :new }
-        format.json { render json: @previous_learning.errors, status: :unprocessable_entityy }
+        format.json { render json: @previous_learning.errors.full_messages , status: :unprocessable_entity }
       end
     end
   end
