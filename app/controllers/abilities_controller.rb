@@ -26,7 +26,6 @@ class AbilitiesController < ApplicationController
   def create
     @ability = Ability.new(ability_params)
     @ability.user = current_user
-    raise @ability.inspect
     respond_to do |format|
       if @ability.save
         format.html { redirect_to @ability, notice: 'Ability was successfully created.' }

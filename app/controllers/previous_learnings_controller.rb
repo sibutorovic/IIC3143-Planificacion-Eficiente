@@ -1,6 +1,5 @@
 class PreviousLearningsController < ApplicationController
   before_action :set_previous_learning, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token
 
   # GET /previous_learnings
   # GET /previous_learnings.json
@@ -27,7 +26,6 @@ class PreviousLearningsController < ApplicationController
   def create
     @previous_learning = PreviousLearning.new(previous_learning_params)
     @previous_learning.user = current_user
-    raise @previous_learning.inspect
     respond_to do |format|
       if @previous_learning.save
         format.html { redirect_to @previous_learning, notice: 'Previous learning was successfully created.' }
