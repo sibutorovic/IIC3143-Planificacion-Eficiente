@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170623044234) do
     t.datetime "updated_at",        null: false
     t.integer  "plan_id"
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_feedbacks_on_userr_id"
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
     t.index ["plan_id"], name: "index_feedbacks_on_plan_id"
   end
 
