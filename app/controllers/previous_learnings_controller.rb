@@ -1,5 +1,6 @@
 class PreviousLearningsController < ApplicationController
   before_action :set_previous_learning, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /previous_learnings
   # GET /previous_learnings.json
