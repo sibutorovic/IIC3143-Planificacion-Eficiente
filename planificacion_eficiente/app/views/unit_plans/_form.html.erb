@@ -12,20 +12,26 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+
+
+  <div class="form-group" data-toggle="tooltip" 
+  title="Nombre de la unidad.">
     <%= f.label :title,'Título',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" data-toggle="tooltip" 
+  title="Estimado de horas totales de trabajo para los alumnos que tomará la unidad. 
+  Debe considerar el tiempo estimado de cada contenido.">
     <%= f.label :total_hours_unit,'Total horas',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.number_field :total_hours_unit, min: 0,class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" data-toggle="tooltip" 
+  title="Contenidos especificos de la asignatura que conforman la unidad">
     <%= f.label :previous_learnings,'Contenidos',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :previous_learnings, @previous_learnings, :id , :content, {}, {:multiple => true, class: 'form-control', id: "prev-learning-select"} %>
@@ -38,7 +44,8 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" data-toggle="tooltip" 
+  title="Habilidades que el alumno adquirirá durante el curso de la unidad">
     <%= f.label :abilities,'Habilidades',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :abilities, @abilities, :id , :name, {}, {:multiple => true,  class: 'form-control'} %>
@@ -51,7 +58,9 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" data-toggle="tooltip" 
+  title="El orden de los OA será seleccionado por el docente en base al 
+  recorrido necesario que los alumnos requieren para el cumplimiento de la Unidad Didáctica.">
     <%= f.label :learning_objectives,'Objetivos de aprendizaje - Ejes' ,class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.collection_select :learning_objectives, @learning_objectives, :id , :name, {}, {:multiple => true, class: 'form-control'}%>
@@ -77,7 +86,10 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group"  data-toggle="tooltip" 
+  title="Da cuenta de la comprensión que se espera por parte del estudiante 
+  al recorrer la unidad. Este aprendizaje o propósito debe integrar los OA, 
+  habilidades y actitudes seleccionadas, de modo que den sentido a sus vivencias.">
     <%= f.label :objective,'Objetivo',class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :objective, class: "form-control" %>
