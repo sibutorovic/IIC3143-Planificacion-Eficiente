@@ -1,42 +1,42 @@
 <!--<h2>Edit <%= resource_name.to_s.humanize %></h2>-->
-<h2>Editar Perfil</h2>
+<h2 class="chalk">Editar Perfil</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="field chalk">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, style: 'color:black' %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Esperando confirmación para: <%= resource.unconfirmed_email %></div>
+    <div class="chalk">Esperando confirmación para: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :contraseña %> <i>(dejar en blanco si no se desea cambiar)</i><br />
+  <div class="field chalk">
+    <%= f.label :contraseña %> <i class="chalk">(dejar en blanco si no se desea cambiar)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="field chalk">
     <%= f.label :confirmar_contraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="field chalk">
     <%= f.label :contraseña_actual %> <br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <br/>
   
-  <div class="actions">
-    <%= f.submit "Actualizar" %>
+  <div class="actions chalk">
+    <%= f.submit "Actualizar", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancelar cuenta</h3>
+<h3 class="chalk">Cancelar cuenta</h3>
 
-<p> <%= button_to "Eliminar cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
+<p> <%= button_to "Eliminar cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: "btn btn-primary chalk" %></p>
 
-<%= link_to "Volver", :back %>
+<%= link_to "Volver", :back, class: "btn btn-success limit-button chalk" %>
