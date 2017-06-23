@@ -154,7 +154,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @feedbacks) do |feedback| %>
-            <td><%= User.find_by(id: feedback.user_id) ? User.find_by(id: feedback.feedback_giver_id).email : 'Cuenta borrada' %>
+            <td><%= User.find_by(id: feedback.user_id) ? User.find_by(id: feedback.user_id).email : 'Cuenta borrada' %>
             <td><%= feedback.title %></td>
             <td><%= feedback.body %></td>
       <% end %>
