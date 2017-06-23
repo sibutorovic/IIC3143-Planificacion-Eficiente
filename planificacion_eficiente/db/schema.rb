@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623023945) do
+ActiveRecord::Schema.define(version: 20170623044234) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -63,9 +63,11 @@ ActiveRecord::Schema.define(version: 20170623023945) do
   create_table "feedbacks", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "plan_id"
+    t.integer  "feedback_giver_id"
+    t.index ["feedback_giver_id"], name: "index_feedbacks_on_feedback_giver_id"
     t.index ["plan_id"], name: "index_feedbacks_on_plan_id"
   end
 
