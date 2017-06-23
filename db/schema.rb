@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170623044234) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "plan_id"
-    t.integer  "feedback_giver_id"
-    t.index ["feedback_giver_id"], name: "index_feedbacks_on_feedback_giver_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_feedbacks_on_userr_id"
     t.index ["plan_id"], name: "index_feedbacks_on_plan_id"
   end
 
