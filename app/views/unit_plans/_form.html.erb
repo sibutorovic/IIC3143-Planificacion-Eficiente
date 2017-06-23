@@ -135,7 +135,7 @@
 
 
       $.ajax({
-        url:'/previous_learnings.json',
+        url:'/previous_learnings',
         type:'POST',
         dataType:'json',
         data:{
@@ -165,8 +165,8 @@
         },
         error:function(error){
             alert("No se pudo crear el aprendizaje previo");
-            alert(error)
-            console.log(error)
+            alert(error);
+            console.log(error);
         }
       });
     });
