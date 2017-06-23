@@ -5,12 +5,20 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.all
+    @shared = SharedPlan.where(user_id: current_user.id)
+    @shared_plans = []
+    @shared.each do |s| 
+      if( Plan.find_by(id: s.plan_id))
+        @shared_plans << Plan.find_by(id: s.plan_id)
+      end
+    end
   end
 
   # GET /plans/1
   # GET /plans/1.json
   def show
-
+    @feedback = Feedback.new
+    @feedbacks = Feedback.where(plan_id: @plan.id)
     @unit_plans = @plan.unit_plans
     respond_to do |format|
       format.html
@@ -32,7 +40,7 @@ class PlansController < ApplicationController
   'Tercero Medio','Cuarto Medio']
     @subjects = ['Matemáticas','Lenguaje y Comunicación','Historia',
       'Educación Física','Música']
-    @unit_plans = UnitPlan.all
+    @unit_plans = UnitPlan.all.where(user_id: current_user.id)
 
 
   end
@@ -51,6 +59,8 @@ class PlansController < ApplicationController
       @plan.unit_plans << l
     end
 
+    @plan.user = current_user
+
 
     respond_to do |format|
       if @plan.save
@@ -61,6 +71,21 @@ class PlansController < ApplicationController
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def share 
+    @plan = Plan.find_by(id: params['sharing']['plan_id'])
+    @user = User.find_by(email: params['sharing']['user_email'])
+    if(@user) 
+      @shared_plan = SharedPlan.new(user_id: @user.id, plan_id: @plan.id)
+      @shared_plan.save
+      flash[:success] = "Plan compartido"
+      redirect_to plans_url
+    else
+      flash[:error] = "Email no valido"
+      redirect_to plans_url
+    end
+
   end
 
   # PATCH/PUT /plans/1

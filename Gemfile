@@ -50,6 +50,8 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'rails_12factor', group: :production
+gem 'bcrypt', platforms: :ruby
+gem 'acts-as-taggable-on', '~> 4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

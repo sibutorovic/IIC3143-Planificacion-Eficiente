@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516172518) do
+ActiveRecord::Schema.define(version: 20170623044234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_abilities_on_unit_plan_id", using: :btree
+    t.integer  "user_id"
+    t.index ["unit_plan_id"], name: "index_abilities_on_unit_plan_id"
+    t.index ["user_id"], name: "index_abilities_on_user_id"
   end
 
   create_table "abilities_unit_plans", force: :cascade do |t|
@@ -51,7 +53,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id", using: :btree
+    t.integer  "user_id"
+    t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id"
+    t.index ["user_id"], name: "index_attitudes_on_user_id"
   end
 
   create_table "attitudes_unit_plans", force: :cascade do |t|
@@ -62,10 +66,12 @@ ActiveRecord::Schema.define(version: 20170516172518) do
   create_table "feedbacks", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "plan_id"
-    t.index ["plan_id"], name: "index_feedbacks_on_plan_id", using: :btree
+    t.integer  "feedback_giver_id"
+    t.index ["feedback_giver_id"], name: "index_feedbacks_on_feedback_giver_id"
+    t.index ["plan_id"], name: "index_feedbacks_on_plan_id"
   end
 
   create_table "learning_objectives", force: :cascade do |t|
@@ -73,6 +79,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
+    t.integer  "user_id"
+    t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id"
+    t.index ["user_id"], name: "index_learning_objectives_on_user_id"
   end
 
   create_table "learning_objectives_unit_plans", force: :cascade do |t|
@@ -96,6 +105,8 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.integer  "total_hours"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "plans_unit_plans", force: :cascade do |t|
@@ -112,7 +123,43 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "updated_at",            null: false
     t.integer  "unit_plan_id"
     t.string   "title"
-    t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id", using: :btree
+    t.integer  "user_id"
+    t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id"
+    t.index ["user_id"], name: "index_previous_learnings_on_user_id"
+  end
+
+  create_table "shared_plans", force: :cascade do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_shared_plans_on_plan_id"
+    t.index ["user_id"], name: "index_shared_plans_on_user_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.string   "tagger_type"
+    t.integer  "tagger_id"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -158,7 +205,9 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
-    t.index ["plan_id"], name: "index_unit_plans_on_plan_id", using: :btree
+    t.integer  "user_id"
+    t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
+    t.index ["user_id"], name: "index_unit_plans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

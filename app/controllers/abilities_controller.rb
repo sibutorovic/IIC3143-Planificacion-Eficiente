@@ -25,6 +25,7 @@ class AbilitiesController < ApplicationController
   # POST /abilities.json
   def create
     @ability = Ability.new(ability_params)
+    @ability.user = current_user
 
     respond_to do |format|
       if @ability.save

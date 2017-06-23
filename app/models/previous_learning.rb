@@ -15,4 +15,5 @@
 
 class PreviousLearning < ApplicationRecord
   belongs_to :unit_plan
+  belongs_to :user
 end

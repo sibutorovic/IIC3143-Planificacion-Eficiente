@@ -12,7 +12,7 @@
 #
 
 class Plan < ApplicationRecord
-  belongs_to :teacher
+  belongs_to :user
   has_many :feedbacks
   has_and_belongs_to_many :unit_plans
 end

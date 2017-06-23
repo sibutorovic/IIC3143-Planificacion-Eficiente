@@ -23,6 +23,4 @@ class Teacher < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :plans
-  belongs_to :unit_head
 end

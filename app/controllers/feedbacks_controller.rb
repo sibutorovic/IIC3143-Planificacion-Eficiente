@@ -28,7 +28,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
+        format.html { redirect_to plans_url}
         format.json { render :show, status: :created, location: @feedback }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class FeedbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:title, :body)
+      params.require(:feedback).permit(:title, :body, :plan_id, :feedback_giver_id)
     end
 end

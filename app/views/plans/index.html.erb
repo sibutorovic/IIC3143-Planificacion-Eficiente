@@ -25,10 +25,85 @@
             <td><%= plan.subject %></td>
             <td><%= plan.year %></td>
             <td><%= plan.total_hours %></td>
-            <td><%= link_to 'Ver', plan %></td>
-        <td><%= link_to 'Editar', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Eliminar', plan, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+            <td><%= link_to 'Ver', plan , class: 'btn btn-info'%></td>
+        <td><%= link_to 'Editar', edit_plan_path(plan), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Eliminar', plan, method: :delete, data: { confirm: '¿Estás seguro?' },  class: 'btn btn-info' %></td>
+        <td><%= link_to "Compartir", "#myModal", :class => "btn btn-info", "data-toggle" => "modal" , :data => {plan_id: plan.id}%>
+</td>
+
       <% end %>
     </tbody>
   </table>
 </div>
+
+<div>
+  <h1>Planes compartidos conmigo</h1>
+
+ <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Curso</th>
+            <th>Asignatura</th>
+            <th>Año</th>
+            <th>Total horas</th>
+            <th>Compartido por</th>
+  
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @shared_plans) do |plan| %>
+            <td><%= plan.grade %></td>
+            <td><%= plan.subject %></td>
+            <td><%= plan.year %></td>
+            <td><%= plan.total_hours %></td>
+            <td><%= User.find_by(id: plan.user_id ) ? User.find_by(id: plan.user_id ).email : 'Usuario borrado'  %></td>
+            <td><%= link_to 'Ver', plan , class: 'btn btn-info'%></td>
+</td>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Compartir planificación</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ingresar email asociado a la cuenta del usuario al que se desea compartir</p>
+        <%= form_for :sharing, :url => plans_share_path do |form| %>
+          <div class="form-group">
+            <div class="">
+              <%= form.text_field :user_email, class: "form-control"%>
+            </div>
+          </div>
+          <%= form.hidden_field :plan_id %>
+          <div class="form-group">
+            <div class="">
+              <%= form.submit 'Compartir',class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+ $('body').on('shown.bs.modal', '#myModal', function (e) {
+  var plan_id = $(e.relatedTarget).data('plan-id');
+  $('#sharing_plan_id').val(plan_id);
+ });
+});
+</script>

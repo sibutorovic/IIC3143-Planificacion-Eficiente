@@ -19,10 +19,10 @@ class UnitPlansController < ApplicationController
   # GET /unit_plans/new
   def new
     @unit_plan = UnitPlan.new
-    @previous_learnings = PreviousLearning.all
-    @learning_objectives = LearningObjective.all
-    @abilities = Ability.all
-    @attitudes = Attitude.all
+    @previous_learnings = PreviousLearning.all.where(user_id: current_user.id)
+    @learning_objectives = LearningObjective.all.where(user_id: current_user.id)
+    @abilities = Ability.all.where(user_id: current_user.id)
+    @attitudes = Attitude.all.where(user_id: current_user.id)
 
     @previous_learning = PreviousLearning.new
     @attitude = Attitude.new
@@ -71,6 +71,8 @@ class UnitPlansController < ApplicationController
     previous_learnings_objs.each do |prev|
       @unit_plan.previous_learnings << prev
     end
+
+    @unit_plan.user = current_user
 
     respond_to do |format|
       if @unit_plan.save

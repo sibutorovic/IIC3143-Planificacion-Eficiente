@@ -39,14 +39,14 @@
 
       <tr>
         <td class="habilidades_plan">
-          Habilidades:</br>
+          <span class="bold">Habilidades:</span></br>
           <% unit_plan.abilities.each do |ability| %>
             <%= ability.name %></br>
           <%end%>
         </td>
 
         <td class="ejes_tematicos_plan">
-          Ejes temáticos:</br>
+          <span class="bold">Ejes temáticos:</span></br>
           <% unit_plan.learning_objectives.each do |learning_objective| %>
             <%= learning_objective.name %></br>
           <%end%>
