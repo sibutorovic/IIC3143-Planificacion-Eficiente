@@ -35,7 +35,7 @@ gem 'record_tag_helper', '~> 1.0'
 #gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
-#gem 'render_anywhere'
+gem 'render_anywhere'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

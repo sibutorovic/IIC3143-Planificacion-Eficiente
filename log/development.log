@@ -9995,3 +9995,70 @@ Migrating to CreatePlansUnitPlans (20170516172518)
   [1m[35m (60.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (60.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(1004167886513700510)[0m
   [1m[36mActiveRecord::SchemaMigration Load (50.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2017-06-23 04:53:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:6)
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 11075ms (Views: 11022.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-23 04:56:08 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 501ms (Views: 481.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-23 04:57:06 -0400
+Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.2.
+Please use the `permit` method to add or remove any key:
+
+  To add any new key, use the `keys` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:param1, :param2, :param3])
+
+  To remove any existing key, use the `except` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, except: [:email])
+ (called from configure_permitted_parameters at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:17)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (171.0ms)
+Completed 200 OK in 935ms (Views: 792.3ms | ActiveRecord: 60.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 04:57:17 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hpY7LIs2bsf99w2gFH6ECXTzdykWFfoNas9pmICen5hLfqnw3IwM6JPz2B23kvG1l/nuSP9E/Hncfhs5s4TCWQ==", "user"=>{"email"=>"s@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.2.
+Please use the `permit` method to add or remove any key:
+
+  To add any new key, use the `keys` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:param1, :param2, :param3])
+
+  To remove any existing key, use the `except` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, except: [:email])
+ (called from configure_permitted_parameters at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:17)
+  [1m[36mUser Load (59.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "s@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 160ms (ActiveRecord: 59.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hpY7LIs2bsf99w2gFH6ECXTzdykWFfoNas9pmICen5hLfqnw3IwM6JPz2B23kvG1l/nuSP9E/Hncfhs5s4TCWQ==", "user"=>{"email"=>"s@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.2.
+Please use the `permit` method to add or remove any key:
+
+  To add any new key, use the `keys` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:param1, :param2, :param3])
+
+  To remove any existing key, use the `except` keyword argument:
+  devise_parameter_sanitizer.permit(:sign_up, except: [:email])
+ (called from configure_permitted_parameters at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:17)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (100.0ms)
+Completed 200 OK in 1192ms (Views: 892.0ms | ActiveRecord: 0.0ms)
+
+
