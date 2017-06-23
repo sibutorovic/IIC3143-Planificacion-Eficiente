@@ -10133,3 +10133,299 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 2594ms (Views: 2551.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/unit_plans/new" for ::1 at 2017-06-23 06:52:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at C:/Users/Seba/Documents/gitworkspace/IIC3143-Planificacion-Eficiente/app/controllers/application_controller.rb:4)
+Processing by UnitPlansController#new as HTML
+  Rendering unit_plans/new.html.erb within layouts/application
+  [1m[36mPreviousLearning Load (1.0ms)[0m  [1m[34mSELECT "previous_learnings".* FROM "previous_learnings"[0m
+  Rendered unit_plans/_prev_learning_form.html.erb (2.0ms)
+  [1m[36mAbility Load (1.0ms)[0m  [1m[34mSELECT "abilities".* FROM "abilities"[0m
+  Rendered unit_plans/_ability_form.html.erb (1.0ms)
+  [1m[36mLearningObjective Load (1.0ms)[0m  [1m[34mSELECT "learning_objectives".* FROM "learning_objectives"[0m
+  Rendered unit_plans/_learning_objective_form.html.erb (1.0ms)
+  [1m[36mAttitude Load (1.0ms)[0m  [1m[34mSELECT "attitudes".* FROM "attitudes"[0m
+  Rendered unit_plans/_attitude_form.html.erb (0.0ms)
+  Rendered unit_plans/_form.html.erb (314.0ms)
+  Rendered unit_plans/new.html.erb within layouts/application (346.0ms)
+Completed 200 OK in 3006ms (Views: 2886.6ms | ActiveRecord: 19.0ms)
+
+
+Started POST "/abilities" for ::1 at 2017-06-23 06:53:15 -0400
+Processing by AbilitiesController#create as JSON
+  Parameters: {"ability"=>{"name"=>"Yes"}}
+  [1m[35m (59.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (59.0ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Yes"], ["created_at", 2017-06-23 10:53:16 UTC], ["updated_at", 2017-06-23 10:53:16 UTC]]
+  [1m[35m (100.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 331ms (Views: 1.3ms | ActiveRecord: 218.0ms)
+
+
+Started GET "/unit_plans/new" for ::1 at 2017-06-23 06:53:20 -0400
+Processing by UnitPlansController#new as HTML
+  Rendering unit_plans/new.html.erb within layouts/application
+  [1m[36mPreviousLearning Load (0.0ms)[0m  [1m[34mSELECT "previous_learnings".* FROM "previous_learnings"[0m
+  Rendered unit_plans/_prev_learning_form.html.erb (1.0ms)
+  [1m[36mAbility Load (1.0ms)[0m  [1m[34mSELECT "abilities".* FROM "abilities"[0m
+  Rendered unit_plans/_ability_form.html.erb (0.0ms)
+  [1m[36mLearningObjective Load (0.0ms)[0m  [1m[34mSELECT "learning_objectives".* FROM "learning_objectives"[0m
+  Rendered unit_plans/_learning_objective_form.html.erb (1.0ms)
+  [1m[36mAttitude Load (0.0ms)[0m  [1m[34mSELECT "attitudes".* FROM "attitudes"[0m
+  Rendered unit_plans/_attitude_form.html.erb (1.0ms)
+  Rendered unit_plans/_form.html.erb (96.0ms)
+  Rendered unit_plans/new.html.erb within layouts/application (117.0ms)
+Completed 200 OK in 1763ms (Views: 1740.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-23 06:53:28 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 731ms (Views: 680.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-23 06:53:33 -0400
+Started GET "/users/sign_in" for ::1 at 2017-06-23 06:53:33 -0400
+Processing by Devise::SessionsController#new as HTML
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendering devise/sessions/new.html.erb within layouts/application
+Started GET "/users/sign_in" for ::1 at 2017-06-23 06:53:34 -0400
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (690.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (670.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (94.0ms)
+Completed 200 OK in 2792ms (Views: 2776.0ms | ActiveRecord: 2.0ms)
+
+
+Completed 200 OK in 2866ms (Views: 2834.4ms | ActiveRecord: 11.0ms)
+
+
+Completed 200 OK in 1514ms (Views: 1512.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:53:45 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhKFJz0FalaNqcVmodt60ptcSOWfp8JwcMtAq0YrcSA7K4e8PNuBN5yVdWQvblepaAmGpNl/e3DJIV9frNrh9A==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 3.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhKFJz0FalaNqcVmodt60ptcSOWfp8JwcMtAq0YrcSA7K4e8PNuBN5yVdWQvblepaAmGpNl/e3DJIV9frNrh9A==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (100.0ms)
+Completed 200 OK in 1949ms (Views: 1784.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:53:52 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2ezT6wm2zxiHb9QUhqgO5rMJrm/Y0S7XQCZicjksuOls1dFwCGgkeZZTZBYIHSOdQFxgLp4Jl9f5zH2G090oPQ==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2ezT6wm2zxiHb9QUhqgO5rMJrm/Y0S7XQCZicjksuOls1dFwCGgkeZZTZBYIHSOdQFxgLp4Jl9f5zH2G090oPQ==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 1917ms (Views: 1787.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:54:10 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSW2QwKvZSNmdtRgMkAYmTAlgc0JblYQ5hnIuJZuR9kUHLTYA3GOQndKZGK89TXiw3BPjE+27xBf89dMfJ/XDQ==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSW2QwKvZSNmdtRgMkAYmTAlgc0JblYQ5hnIuJZuR9kUHLTYA3GOQndKZGK89TXiw3BPjE+27xBf89dMfJ/XDQ==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 694ms (Views: 563.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:54:16 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XxUwzPyfl9/EcMiOvMJGYhTQg0GKX+/9BxJftwpy6tTqLDJX/UF8vtVMeIwyd2sZ54VNAMyHVv2++EBD4IN6AA==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 10ms (ActiveRecord: 8.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XxUwzPyfl9/EcMiOvMJGYhTQg0GKX+/9BxJftwpy6tTqLDJX/UF8vtVMeIwyd2sZ54VNAMyHVv2++EBD4IN6AA==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 701ms (Views: 571.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:54:21 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4u4R0NCLxUO8+KN1pPh6md//3aqZvBN1IJzVB+0hDOZX1xNL0VUuIq3EE3cqTVfiLKoT699kqnWZdsrzB9CcMg==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4u4R0NCLxUO8+KN1pPh6md//3aqZvBN1IJzVB+0hDOZX1xNL0VUuIq3EE3cqTVfiLKoT699kqnWZdsrzB9CcMg==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 702ms (Views: 572.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-06-23 06:54:37 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (130.0ms)
+Completed 200 OK in 1674ms (Views: 1673.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-06-23 06:54:47 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"soN1mNVKn/MaGpeKZYJ3K+ZuJtOK/lPs/RRAXPNtcTEHuncD1JR0kgsmJ4jrN1pQFTvokswm6uxE/l+oGZzh5Q==", "user"=>{"email"=>"seba@uc.cl", "role"=>"admin", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrar"}
+  [1m[35m (60.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (88.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (50.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "seba@uc.cl"], ["encrypted_password", "$2a$11$ksCt2gmF1zf6WPk0pbI7p.8PBPn8UUdqhckCeBYTpT9uuEyO2deOW"], ["created_at", 2017-06-23 10:54:48 UTC], ["updated_at", 2017-06-23 10:54:48 UTC], ["role", "admin"]]
+  [1m[35m (70.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (50.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (18.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-06-23 10:54:48 UTC], ["last_sign_in_at", 2017-06-23 10:54:48 UTC], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", 2017-06-23 10:54:48 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 979ms (ActiveRecord: 336.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-23 06:54:48 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 416ms (Views: 392.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/unit_plans" for ::1 at 2017-06-23 06:54:51 -0400
+Processing by UnitPlansController#index as HTML
+  Rendering unit_plans/index.html.erb within layouts/application
+  [1m[36mUnitPlan Load (1.0ms)[0m  [1m[34mSELECT "unit_plans".* FROM "unit_plans"[0m
+  Rendered unit_plans/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 487ms (Views: 464.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/unit_plans/new" for ::1 at 2017-06-23 06:54:52 -0400
+Processing by UnitPlansController#new as HTML
+  Rendering unit_plans/new.html.erb within layouts/application
+  [1m[36mPreviousLearning Load (1.0ms)[0m  [1m[34mSELECT "previous_learnings".* FROM "previous_learnings"[0m
+  Rendered unit_plans/_prev_learning_form.html.erb (1.0ms)
+  [1m[36mAbility Load (2.0ms)[0m  [1m[34mSELECT "abilities".* FROM "abilities"[0m
+  Rendered unit_plans/_ability_form.html.erb (0.0ms)
+  [1m[36mLearningObjective Load (0.0ms)[0m  [1m[34mSELECT "learning_objectives".* FROM "learning_objectives"[0m
+  Rendered unit_plans/_learning_objective_form.html.erb (0.0ms)
+  [1m[36mAttitude Load (0.0ms)[0m  [1m[34mSELECT "attitudes".* FROM "attitudes"[0m
+  Rendered unit_plans/_attitude_form.html.erb (0.0ms)
+  Rendered unit_plans/_form.html.erb (98.0ms)
+  Rendered unit_plans/new.html.erb within layouts/application (119.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 548ms (Views: 501.8ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/abilities" for ::1 at 2017-06-23 06:54:59 -0400
+Processing by AbilitiesController#create as JSON
+  Parameters: {"ability"=>{"name"=>"Jaja"}}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jaja"], ["created_at", 2017-06-23 10:54:59 UTC], ["updated_at", 2017-06-23 10:54:59 UTC]]
+  [1m[35m (75.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 81ms (Views: 0.5ms | ActiveRecord: 75.0ms)
+
+
+Started POST "/previous_learnings" for ::1 at 2017-06-23 06:55:07 -0400
+Processing by PreviousLearningsController#create as JSON
+  Parameters: {"previous_learning"=>{"title"=>"asdasd", "content"=>"Uno", "generic_activity"=>"adasd", "achievement_indicator"=>"adasd", "estimated_time"=>"11"}}
+  [1m[35m (49.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (60.0ms)[0m  [1m[32mINSERT INTO "previous_learnings" ("content", "generic_activity", "achievement_indicator", "estimated_time", "created_at", "updated_at", "title") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "Uno"], ["generic_activity", "adasd"], ["achievement_indicator", "adasd"], ["estimated_time", 11], ["created_at", 2017-06-23 10:55:07 UTC], ["updated_at", 2017-06-23 10:55:07 UTC], ["title", "asdasd"]]
+  [1m[35m (120.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 361ms (Views: 1.1ms | ActiveRecord: 229.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-06-23 06:55:10 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"V47IuF4Yhdt0lJKbDdoIHNzAPGcapNikrRoskEeWe43it8ojX8ZuumWoIpmDbyVnL5XyJlx8YaQU8DNkrWfrWQ=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-23 06:55:10 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 490ms (Views: 469.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-23 06:55:12 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 562ms (Views: 560.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-23 06:55:20 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pf4fFLYP1lso7P+JcJzPZTReNj+9YBSydeb1ixVNPwzzYQf/pk4/BjExdXlOnckQlG+ll8QHynM9JWswsKxjiQ==", "user"=>{"email"=>"seba@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seba@uc.cl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", 2017-06-23 10:55:20 UTC], ["updated_at", 2017-06-23 10:55:20 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["sign_in_count", 2], ["current_sign_in_at", 2017-06-23 10:55:20 UTC], ["updated_at", 2017-06-23 10:55:20 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 371ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-23 06:55:20 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 1713ms (Views: 1692.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/unit_plans" for ::1 at 2017-06-23 06:55:23 -0400
+Processing by UnitPlansController#index as HTML
+  Rendering unit_plans/index.html.erb within layouts/application
+  [1m[36mUnitPlan Load (79.0ms)[0m  [1m[34mSELECT "unit_plans".* FROM "unit_plans"[0m
+  Rendered unit_plans/index.html.erb within layouts/application (160.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1028ms (Views: 888.0ms | ActiveRecord: 79.0ms)
+
+
+Started GET "/unit_plans/new" for ::1 at 2017-06-23 06:55:26 -0400
+Processing by UnitPlansController#new as HTML
+  Rendering unit_plans/new.html.erb within layouts/application
+  [1m[36mPreviousLearning Load (2.0ms)[0m  [1m[34mSELECT "previous_learnings".* FROM "previous_learnings"[0m
+  Rendered unit_plans/_prev_learning_form.html.erb (1.0ms)
+  [1m[36mAbility Load (0.0ms)[0m  [1m[34mSELECT "abilities".* FROM "abilities"[0m
+  Rendered unit_plans/_ability_form.html.erb (1.0ms)
+  [1m[36mLearningObjective Load (1.0ms)[0m  [1m[34mSELECT "learning_objectives".* FROM "learning_objectives"[0m
+  Rendered unit_plans/_learning_objective_form.html.erb (0.0ms)
+  [1m[36mAttitude Load (0.0ms)[0m  [1m[34mSELECT "attitudes".* FROM "attitudes"[0m
+  Rendered unit_plans/_attitude_form.html.erb (0.0ms)
+  Rendered unit_plans/_form.html.erb (102.0ms)
+  Rendered unit_plans/new.html.erb within layouts/application (123.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 564ms (Views: 511.0ms | ActiveRecord: 3.0ms)
+
+
