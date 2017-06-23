@@ -1,5 +1,6 @@
 class UnitPlansController < ApplicationController
   before_action :set_unit_plan, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /unit_plans
   # GET /unit_plans.json

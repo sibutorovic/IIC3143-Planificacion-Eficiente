@@ -163,9 +163,10 @@
             elem4.val("");
             elem.val("");
         },
-        error:function(data){
+        error:function(error){
             alert("No se pudo crear el aprendizaje previo");
-            console.log(data)
+            alert(error)
+            console.log(error)
         }
       });
     });
