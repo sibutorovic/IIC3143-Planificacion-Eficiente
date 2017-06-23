@@ -25,6 +25,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :plans
-  belongs_to :unit_head
   has_many :unit_plans
 end
