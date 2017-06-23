@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id", using: :btree
   end
 
   create_table "learning_objectives_unit_plans", force: :cascade do |t|
