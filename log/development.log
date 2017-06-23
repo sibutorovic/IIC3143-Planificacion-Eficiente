@@ -9755,3 +9755,243 @@ Processing by PlansController#index as HTML
 Completed 200 OK in 2271ms (Views: 2197.2ms | ActiveRecord: 2.0ms)
 
 
+  [1m[35m (215.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (85.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1004167886513700510);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTeachers (20170413195331)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (144.0ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" serial primary key, "email" character varying, "password" character varying, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413195331"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAttitudes (20170413195521)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (255.0ms)[0m  [1m[35mCREATE TABLE "attitudes" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (59.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413195521"]]
+  [1m[35m (120.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLearningObjectives (20170413195539)
+  [1m[35m (40.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (151.0ms)[0m  [1m[35mCREATE TABLE "learning_objectives" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (30.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413195539"]]
+  [1m[35m (40.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUnitHeads (20170413195758)
+  [1m[35m (60.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (109.0ms)[0m  [1m[35mCREATE TABLE "unit_heads" ("id" serial primary key, "email" character varying, "password" character varying, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (51.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413195758"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlans (20170413195907)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.0ms)[0m  [1m[35mCREATE TABLE "plans" ("id" serial primary key, "grade" character varying, "subject" character varying, "year" integer, "total_hours" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413195907"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUnitPlans (20170413200105)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (132.0ms)[0m  [1m[35mCREATE TABLE "unit_plans" ("id" serial primary key, "title" character varying, "total_hours_unit" integer, "objective" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413200105"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePreviousLearnings (20170413200229)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.0ms)[0m  [1m[35mCREATE TABLE "previous_learnings" ("id" serial primary key, "content" text, "generic_activity" text, "achievement_indicator" text, "estimated_time" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413200229"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdmins (20170413200300)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE TABLE "admins" ("id" serial primary key, "email" character varying, "password" character varying, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413200300"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemovePasswordFromTeachers (20170413213559)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "teachers" DROP "password"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413213559"]]
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveEmailFromTeachers (20170413213612)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" DROP "email"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413213612"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToTeachers (20170413213708)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (271.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (44.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "remember_created_at" timestamp[0m
+  [1m[35m (49.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "current_sign_in_ip" character varying[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "teachers" ADD "last_sign_in_ip" character varying[0m
+  [1m[35m (28.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_teachers_on_email" ON "teachers"  ("email")[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_teachers_on_reset_password_token" ON "teachers"  ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413213708"]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemovePasswordFromAdmins (20170413214251)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" DROP "password"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413214251"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveEmailFromUnitHeads (20170413214344)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "unit_heads" DROP "email"[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413214344"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemovePasswordFromUnitHeads (20170413214356)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "unit_heads" DROP "password"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413214356"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveEmailFromAdmins (20170413214950)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "admins" DROP "email"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413214950"]]
+  [1m[35m (60.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUnitHeads (20170413215002)
+  [1m[35m (80.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (120.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (110.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (60.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "reset_password_token" character varying[0m
+  [1m[35m (60.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (50.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "remember_created_at" timestamp[0m
+  [1m[35m (120.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "current_sign_in_ip" character varying[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "unit_heads" ADD "last_sign_in_ip" character varying[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_unit_heads_on_email" ON "unit_heads"  ("email")[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_unit_heads_on_reset_password_token" ON "unit_heads"  ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413215002"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToAdmins (20170413215007)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (104.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (56.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "remember_created_at" timestamp[0m
+  [1m[35m (408.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "current_sign_in_ip" character varying[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "admins" ADD "last_sign_in_ip" character varying[0m
+  [1m[35m (60.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")[0m
+  [1m[35m (44.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170413215007"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAbilities (20170501064437)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.0ms)[0m  [1m[35mCREATE TABLE "abilities" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170501064437"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFeedbacks (20170501064511)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.0ms)[0m  [1m[35mCREATE TABLE "feedbacks" ("id" serial primary key, "title" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170501064511"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPlanToFeedback (20170512204448)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "feedbacks" ADD "plan_id" integer[0m
+  [1m[35m (47.0ms)[0m  [1m[35mCREATE  INDEX  "index_feedbacks_on_plan_id" ON "feedbacks"  ("plan_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "feedbacks" ADD CONSTRAINT "fk_rails_8f758aa99e"
+FOREIGN KEY ("plan_id")
+  REFERENCES "plans" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512204448"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPlanToUnitPlan (20170512205352)
+  [1m[35m (59.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (59.0ms)[0m  [1m[35mALTER TABLE "unit_plans" ADD "plan_id" integer[0m
+  [1m[35m (310.0ms)[0m  [1m[35mCREATE  INDEX  "index_unit_plans_on_plan_id" ON "unit_plans"  ("plan_id")[0m
+  [1m[35m (50.0ms)[0m  [1m[35mALTER TABLE "unit_plans" ADD CONSTRAINT "fk_rails_2449624cb5"
+FOREIGN KEY ("plan_id")
+  REFERENCES "plans" ("id")
+[0m
+  [1m[35mSQL (49.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512205352"]]
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUnitPlanToPreviousLearning (20170512210027)
+  [1m[35m (58.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.0ms)[0m  [1m[35mALTER TABLE "previous_learnings" ADD "unit_plan_id" integer[0m
+  [1m[35m (229.0ms)[0m  [1m[35mCREATE  INDEX  "index_previous_learnings_on_unit_plan_id" ON "previous_learnings"  ("unit_plan_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "previous_learnings" ADD CONSTRAINT "fk_rails_87ed6898f3"
+FOREIGN KEY ("unit_plan_id")
+  REFERENCES "unit_plans" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512210027"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUnitPlanToAbility (20170512210136)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "abilities" ADD "unit_plan_id" integer[0m
+  [1m[35m (84.0ms)[0m  [1m[35mCREATE  INDEX  "index_abilities_on_unit_plan_id" ON "abilities"  ("unit_plan_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "abilities" ADD CONSTRAINT "fk_rails_3830d92af9"
+FOREIGN KEY ("unit_plan_id")
+  REFERENCES "unit_plans" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512210136"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUnitPlanToAttitude (20170512210151)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "attitudes" ADD "unit_plan_id" integer[0m
+  [1m[35m (67.0ms)[0m  [1m[35mCREATE  INDEX  "index_attitudes_on_unit_plan_id" ON "attitudes"  ("unit_plan_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "attitudes" ADD CONSTRAINT "fk_rails_2d0bfb5e2f"
+FOREIGN KEY ("unit_plan_id")
+  REFERENCES "unit_plans" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512210151"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUnitPlanToLearningObjective (20170512210205)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "learning_objectives" ADD "unit_plan_id" integer[0m
+  [1m[35m (51.0ms)[0m  [1m[35mCREATE  INDEX  "index_learning_objectives_on_unit_plan_id" ON "learning_objectives"  ("unit_plan_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "learning_objectives" ADD CONSTRAINT "fk_rails_1412e11219"
+FOREIGN KEY ("unit_plan_id")
+  REFERENCES "unit_plans" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512210205"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTitleToPreviousLearning (20170512212118)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "previous_learnings" ADD "title" character varying[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512212118"]]
+  [1m[35m (18.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAbilitiesUnitPlans (20170514231035)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.0ms)[0m  [1m[35mCREATE TABLE "abilities_unit_plans" ("id" serial primary key, "unit_plan_id" integer, "ability_id" integer)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170514231035"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAttitudesUnitPlans (20170514233736)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (51.0ms)[0m  [1m[35mCREATE TABLE "attitudes_unit_plans" ("id" serial primary key, "unit_plan_id" integer, "attitude_id" integer)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170514233736"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLearningObjectivesUnitPlans (20170514233747)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.0ms)[0m  [1m[35mCREATE TABLE "learning_objectives_unit_plans" ("id" serial primary key, "unit_plan_id" integer, "learning_objective_id" integer)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170514233747"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20170515012904)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (40.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (28.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170515012904"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUser (20170515204030)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170515204030"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlanRelations (20170516142436)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (69.0ms)[0m  [1m[35mCREATE TABLE "plan_relations" ("id" serial primary key, "semester" integer, "order" integer, "plan_id" integer, "unit_plan_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170516142436"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlansUnitPlans (20170516172518)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (121.0ms)[0m  [1m[35mCREATE TABLE "plans_unit_plans" ("id" serial primary key, "unit_plan_id" integer, "plan_id" integer)[0m
+  [1m[35mSQL (109.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170516172518"]]
+  [1m[35m (60.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (10.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (58.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (59.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-06-23 08:42:51 UTC], ["updated_at", 2017-06-23 08:42:51 UTC]]
+  [1m[35m (60.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (60.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(1004167886513700510)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (50.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m

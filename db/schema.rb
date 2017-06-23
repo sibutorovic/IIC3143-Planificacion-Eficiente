@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170516172518) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_abilities_on_unit_plan_id"
+    t.index ["unit_plan_id"], name: "index_abilities_on_unit_plan_id", using: :btree
   end
 
   create_table "abilities_unit_plans", force: :cascade do |t|
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "attitudes", force: :cascade do |t|
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id"
+    t.index ["unit_plan_id"], name: "index_attitudes_on_unit_plan_id", using: :btree
   end
 
   create_table "attitudes_unit_plans", force: :cascade do |t|
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "plan_id"
-    t.index ["plan_id"], name: "index_feedbacks_on_plan_id"
+    t.index ["plan_id"], name: "index_feedbacks_on_plan_id", using: :btree
   end
 
   create_table "learning_objectives", force: :cascade do |t|
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "unit_plan_id"
-    t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id"
+    t.index ["unit_plan_id"], name: "index_learning_objectives_on_unit_plan_id", using: :btree
   end
 
   create_table "learning_objectives_unit_plans", force: :cascade do |t|
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "updated_at",            null: false
     t.integer  "unit_plan_id"
     t.string   "title"
-    t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id"
+    t.index ["unit_plan_id"], name: "index_previous_learnings_on_unit_plan_id", using: :btree
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -127,8 +130,8 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_teachers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_teachers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "unit_heads", force: :cascade do |t|
@@ -145,8 +148,8 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_unit_heads_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_unit_heads_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_unit_heads_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_unit_heads_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "unit_plans", force: :cascade do |t|
@@ -156,7 +159,7 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "plan_id"
-    t.index ["plan_id"], name: "index_unit_plans_on_plan_id"
+    t.index ["plan_id"], name: "index_unit_plans_on_plan_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -173,8 +176,14 @@ ActiveRecord::Schema.define(version: 20170516172518) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "role"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "abilities", "unit_plans"
+  add_foreign_key "attitudes", "unit_plans"
+  add_foreign_key "feedbacks", "plans"
+  add_foreign_key "learning_objectives", "unit_plans"
+  add_foreign_key "previous_learnings", "unit_plans"
+  add_foreign_key "unit_plans", "plans"
 end
