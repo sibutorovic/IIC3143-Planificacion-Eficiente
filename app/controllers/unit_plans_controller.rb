@@ -4,7 +4,7 @@ class UnitPlansController < ApplicationController
   # GET /unit_plans
   # GET /unit_plans.json
   def index
-    @unit_plans = UnitPlan.all
+    @unit_plans = UnitPlan.all.where(user_id: current_user.id)
   end
 
   # GET /unit_plans/1
