@@ -15,7 +15,7 @@ class UnitPlan < ApplicationRecord
   has_and_belongs_to_many :abilities
   has_and_belongs_to_many :learning_objectives
   has_and_belongs_to_many :attitudes
-  has_many :previous_learnings
+  has_and_belongs_to_many :previous_learnings
   has_and_belongs_to_many :plans
   belongs_to :user
 end
