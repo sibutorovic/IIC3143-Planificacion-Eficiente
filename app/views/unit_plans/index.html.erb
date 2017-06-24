@@ -13,20 +13,16 @@
             <th>Título</th>
             <th>Total horas</th>
             <th>Objetivo</th>
-            <th></th>
-        <th></th>
-        <th></th>
+
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @unit_plans) do |unit_plan| %>
-            <td><%= unit_plan.title %></td>
+            <td><%= link_to unit_plan.title, unit_plan %></td>
             <td><%= unit_plan.total_hours_unit %></td>
             <td><%= unit_plan.objective %></td>
-            <td><%= link_to 'Ver', unit_plan %></td>
-        <td><%= link_to 'Editar', edit_unit_plan_path(unit_plan) %></td>
-        <td><%= link_to 'Eliminar', unit_plan, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        <td><%= link_to 'Eliminar', unit_plan, method: :delete, :class => 'btn btn-info', data: { confirm: '¿Estás seguro?' } %></td>
       <% end %>
     </tbody>
   </table>

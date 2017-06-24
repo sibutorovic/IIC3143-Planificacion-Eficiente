@@ -12,7 +12,6 @@
       <tr>
             <th>Curso</th>
             <th>Asignatura</th>
-            <th>Año</th>
             <th>Total horas</th>
 
   
@@ -23,10 +22,8 @@
       <%= content_tag_for(:tr, @plans) do |plan| %>
             <td><%= plan.grade %></td>
             <td><%= plan.subject %></td>
-            <td><%= plan.year %></td>
             <td><%= plan.total_hours %></td>
             <td><%= link_to 'Ver', plan , class: 'btn btn-info'%></td>
-        <td><%= link_to 'Editar', edit_plan_path(plan), class: 'btn btn-info' %></td>
         <td><%= link_to 'Eliminar', plan, method: :delete, data: { confirm: '¿Estás seguro?' },  class: 'btn btn-info' %></td>
         <td><%= link_to "Compartir", "#myModal", :class => "btn btn-info", "data-toggle" => "modal" , :data => {plan_id: plan.id}%>
 </td>
@@ -44,7 +41,6 @@
       <tr>
             <th>Curso</th>
             <th>Asignatura</th>
-            <th>Año</th>
             <th>Total horas</th>
             <th>Compartido por</th>
   
@@ -55,7 +51,6 @@
       <%= content_tag_for(:tr, @shared_plans) do |plan| %>
             <td><%= plan.grade %></td>
             <td><%= plan.subject %></td>
-            <td><%= plan.year %></td>
             <td><%= plan.total_hours %></td>
             <td><%= User.find_by(id: plan.user_id ) ? User.find_by(id: plan.user_id ).email : 'Usuario borrado'  %></td>
             <td><%= link_to 'Ver', plan , class: 'btn btn-info'%></td>

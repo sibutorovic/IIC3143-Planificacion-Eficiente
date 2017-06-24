@@ -95,13 +95,15 @@
   </div>
 <%end%>
 
-<%= link_to "Descargar PDF",
+<div class="margin-top">
+<%= link_to "Descargar como PDF",
   plan_path(@plan, format: "pdf"),
   target: "_blank",
-  class: "download" %>
+  class: "download", :class => "btn btn-danger" %>
 
-<%= link_to "Descargar documento adjunto", @plan.pdf.url(:original, false) %>
+<%= link_to "Descargar documento adjunto", @plan.pdf.url(:original, false), :class => 'btn btn-success' %>
 
+</div>
 <% if @plan.user_id != current_user.id %>
   <div class="page-header">
     <h2>Dar Feedback</h2>
